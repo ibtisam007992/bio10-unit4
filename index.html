@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>كتاب حي · التكاثر في الإنسان · الأحياء الصف العاشر</title>
+<style>
+@font-face{font-family:"CodeLatin";src:local("Cascadia Mono"),local("Consolas"),local("Menlo-Regular"),local("SF Mono"),local("DejaVu Sans Mono"),local("Courier New");unicode-range:U+0000-02FF,U+2000-206F,U+2190-2BFF;}
+:root{
+  --c-egg:#c93d72; --c-sperm:#0f8796; --c-zyg:#7a4bc6; --c-lin:#c35a35; --c-ox:#d23b2f; --c-deox:#2f5fd0;
+  --c-food:#2e9a57; --c-co2:#6b7280; --c-urea:#b88c00; --c-tox:#222; --c-hiv:#c97f00; --c-wbc:#4c6ea8;
+  --paper:#fbf6ea; --paper2:#f2e8d2; --ink:#2b2622; --muted:#6b6257; --note:#fff0a0; --noteInk:#4f4200;
+  --pencil:#3b3834; --accent:#c2410c; --good:#1e8a4c; --soft:#d9822b; --tint:#f4dccd; --tint2:#efe2c9;
+  --ui:#fffaf0ee; --uiInk:#2b2622; --navH:64px;
+  --fa:"Cairo","Noto Sans Arabic","Noto Naskh Arabic","Segoe UI","Tahoma","Geeza Pro","DejaVu Sans",sans-serif;
+  --fe:"Cairo","Segoe UI","Helvetica Neue","Arial","DejaVu Sans",sans-serif;
+  --fm:"CodeLatin","Cairo","Noto Sans Arabic","Segoe UI","Tahoma",monospace;
+}
+body.dark{
+  --paper:#2b2721; --paper2:#221f1a; --ink:#efe6d8; --muted:#b6aa97; --note:#5a5020; --noteInk:#fff2a8;
+  --pencil:#d9d0c1; --accent:#ff8a4c; --good:#4fd08a; --soft:#f0a14c; --tint:#4a3a33; --tint2:#3d362c; --ui:#2c2722ee; --uiInk:#f2e9db;
+  --c-egg:#f07aa6; --c-sperm:#3fc9d6; --c-zyg:#b28cf0; --c-lin:#ef8a62; --c-ox:#ff6b5e; --c-deox:#6e96ff; --c-food:#5fd08a; --c-co2:#a3a9b4; --c-urea:#f0c84c; --c-tox:#eee; --c-hiv:#f0b44c; --c-wbc:#8fb0ea;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#d8b88a}
+body{font-family:var(--fa);color:var(--ink);-webkit-tap-highlight-color:transparent;user-select:none}
+body[data-lang=en]{font-family:var(--fe)}
+button{font:inherit;color:inherit;cursor:pointer}
+.ok{color:var(--good);font-weight:800}.bad{color:var(--c-ox);font-weight:800}
+.mono{font-family:var(--fm)}
+.k-egg{color:var(--c-egg)}.k-sperm{color:var(--c-sperm)}.k-zyg{color:var(--c-zyg)}.k-lin{color:var(--c-lin)}.k-ox{color:var(--c-ox)}.k-hiv{color:var(--c-hiv)}.k-wbc{color:var(--c-wbc)}.k-food{color:var(--c-food)}
+
+/* desk */
+.desk{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+body.dark .desk{filter:brightness(.42) saturate(.85)}
+.light{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 90% at 12% -10%,rgba(255,250,232,.55),rgba(255,250,232,0) 55%),radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 55%,rgba(45,28,10,.38) 100%)}
+body.dark .light{background:radial-gradient(120% 90% at 12% -10%,rgba(255,235,200,.10),rgba(0,0,0,0) 55%),radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 50%,rgba(0,0,0,.55) 100%)}
+
+/* book */
+#viewport{position:fixed;left:0;right:0;top:0;bottom:var(--navH);z-index:2;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+#stage{position:relative;flex:none;transform-origin:50% 50%}
+#scene{position:absolute;inset:0;perspective:2600px;perspective-origin:50% 25%}
+#book{position:absolute;left:50%;top:50%;height:var(--ph,860px);transform-style:preserve-3d}
+.cover{position:absolute;left:-20px;right:-20px;top:-16px;bottom:-18px;border-radius:14px;transform:translateZ(-18px);
+  background:radial-gradient(120% 80% at 30% 20%,#2f6b4f,#1d4634 70%),#245a40;
+  box-shadow:0 30px 60px rgba(40,20,5,.55),0 8px 18px rgba(40,20,5,.4),inset 0 0 0 3px rgba(0,0,0,.25),inset 0 0 0 7px rgba(220,255,230,.10)}
+.cover::after{content:"";position:absolute;inset:9px;border-radius:9px;border:1.5px dashed rgba(220,255,230,.25)}
+.block{position:absolute;top:0;height:var(--ph,860px);transform:translateZ(-9px);background:#efe4cb;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+body.dark .block{background:#3a342b}
+.thick{position:absolute;left:0;right:0;bottom:0;height:16px;transform-origin:50% 0;transform:translateY(var(--ph,860px)) rotateX(-90deg);
+  background:repeating-linear-gradient(0deg,#e9dcc0 0 1px,#fbf4e3 1px 3px);box-shadow:inset 0 -3px 4px rgba(0,0,0,.15)}
+body.dark .thick{background:repeating-linear-gradient(0deg,#4a4237 0 1px,#5a5144 1px 3px)}
+.page{position:absolute;top:0;width:480px;height:var(--ph,860px);transform-style:preserve-3d;background:linear-gradient(180deg,rgba(255,255,255,.25),rgba(0,0,0,0) 30%),var(--paper)}
+.page.hide{display:none}
+.page .gut{position:absolute;top:0;bottom:0;width:46px;pointer-events:none}
+.page.sL .gut{right:0;background:linear-gradient(to left,rgba(60,40,20,.20),rgba(60,40,20,0))}
+.page.sR .gut{left:0;background:linear-gradient(to right,rgba(60,40,20,.20),rgba(60,40,20,0))}
+#flipLayer{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none;transform:translateZ(1px)}
+.sheet{position:absolute;top:0;height:var(--ph,860px);width:0;transform-style:preserve-3d}
+.strip{position:absolute;top:0;height:var(--ph,860px);transform-style:preserve-3d}
+.face{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--paper)}
+.face.back{transform:rotateY(180deg)}
+.faceIn{position:absolute;top:0;background:linear-gradient(180deg,rgba(255,255,255,.25),rgba(0,0,0,0) 30%),var(--paper)}
+.fshade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(40,25,10,.35),rgba(40,25,10,.08));opacity:0}
+.cast{position:absolute;top:0;height:var(--ph,860px);opacity:0}
+#offscreen{position:fixed;left:-6000px;top:0;visibility:hidden}
+
+/* text page */
+.pin{position:absolute;inset:0;padding:32px 40px 30px;transform-style:preserve-3d}
+.foot{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:11.5px;color:var(--muted);pointer-events:none}
+.text{font-size:14.5px;line-height:1.5}
+.text p{margin:0 0 7px}
+.kicker{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.3px}
+.ttl{font-size:24px;line-height:1.2;margin:2px 0 6px}
+.hook{font-size:15px;font-weight:600;color:var(--muted);border-inline-start:4px solid var(--accent);padding-inline-start:10px;margin:0 0 10px!important}
+.law{margin:9px 0 8px;padding:7px 12px;border:2px solid var(--pencil);border-radius:12px;background:var(--paper2);text-align:center;font-size:14.5px;line-height:1.75}
+.law b{font-size:15px}
+.note{display:block;width:90%;margin:10px 0 8px;margin-inline-start:auto;padding:8px 13px;background:var(--note);color:var(--noteInk);font-size:14px;line-height:1.5;transform:rotate(-1.3deg);box-shadow:0 6px 10px rgba(80,60,0,.18);border-radius:2px 2px 10px 2px}
+.note::before{content:"";display:block;width:56px;height:12px;margin:-15px auto 4px;background:rgba(255,255,255,.55);transform:rotate(2deg)}
+.predict{transform-style:preserve-3d;margin:5px 0 9px}
+.pq{font-size:14.5px;margin-bottom:5px}
+.flapwrap{position:relative;transform-style:preserve-3d;min-height:50px}
+.pa{padding:7px 12px;border-radius:10px;background:rgba(30,138,76,.10);border:1.5px solid var(--good);font-size:14px;line-height:1.5}
+.flap{position:absolute;inset:0;border:2px dashed var(--pencil);border-radius:10px;background:var(--paper2);font-weight:800;font-size:15px;
+  transform-origin:50% 0;transform:translateZ(1px);transition:transform .8s cubic-bezier(.3,1.4,.5,1);box-shadow:0 3px 8px rgba(0,0,0,.12)}
+.flap.open{transform:translateZ(1px) rotateX(72deg);box-shadow:none}
+body.nomotion .flap{transition:none}
+.check{margin-top:4px;padding:8px 12px;border-radius:12px;border:2px solid var(--c-zyg)}
+.cq{font-size:14.5px;margin-bottom:6px}
+.opts{display:flex;gap:7px;flex-wrap:wrap}
+.opt{min-height:38px;padding:4px 10px;border-radius:10px;border:2px solid var(--pencil);background:var(--paper);font-size:14.5px}
+.opt.right{border-color:var(--good);background:rgba(30,138,76,.15)}
+.opt.wrong{border-color:var(--soft);background:rgba(217,130,43,.13)}
+.opt.pick{border-color:var(--c-zyg);background:rgba(122,75,198,.16)}
+.cfb{min-height:20px;font-size:13.5px;margin-top:5px}
+
+/* lab */
+.lab{font-size:14.5px}
+.labhead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.labhead h2{font-size:21px;margin:0}
+.hint{font-size:13px;color:var(--muted);margin:2px 0 4px}
+.tbtn{border:1.5px solid var(--pencil);background:var(--paper2);border-radius:20px;padding:5px 12px;font-size:13px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.tbtn svg{width:18px;height:18px}
+.popzone{position:relative;transform-style:preserve-3d;margin:4px 0 8px}
+.pop{position:absolute;transform-style:preserve-3d;transform-origin:50% 100%;transform:rotateX(var(--rise));transition:transform 1.05s cubic-bezier(.28,1.65,.55,1)}
+#book.folded .pop{transform:rotateX(0deg);transition:transform .32s ease-in}
+.panel{position:absolute;inset:0;background:var(--paper);border-radius:8px}
+.panel::after{content:"";position:absolute;left:4px;right:4px;bottom:0;height:3px;background:rgba(0,0,0,.18);border-radius:2px}
+.sk{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.pshadow{position:absolute;background:radial-gradient(ellipse at 50% 30%,rgba(40,25,10,.35),rgba(40,25,10,0) 70%);transition:opacity .9s}
+#book.folded .pshadow{opacity:0;transition:opacity .2s}
+.dg{position:absolute;left:0;top:0;overflow:visible;direction:ltr}
+.penlayer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.pp{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.pdot{fill:#fff6b8;filter:url(#glow)}
+.pdot.off{display:none}
+.dg text{font-family:var(--fa);font-size:11px;fill:var(--muted)}
+body[data-lang=en] .dg text{font-family:var(--fe)}
+.org>*{fill:var(--tint);stroke:var(--pencil);stroke-width:1.5;transition:fill .25s,stroke .25s;cursor:pointer}
+.org.tube>*{fill:none;stroke:#e2ae94;stroke-width:9;stroke-linecap:round}
+body.dark .org.tube>*{stroke:#7a5a4c}
+.org .hit{stroke:transparent!important;stroke-width:24!important;fill:none!important}
+.org.hl>*{fill:var(--hl)}
+.org.tube.hl>*{stroke:var(--hl)}
+.org .lining{fill:#e59a7f}
+.ol{fill:none;stroke:var(--pencil);stroke-width:1.3;pointer-events:none}
+.info{border:2px solid var(--pencil);border-radius:12px;padding:7px 12px;background:var(--paper2);min-height:62px;font-size:14px;line-height:1.5;margin-bottom:6px}
+.info b{font-size:16px}
+.info .en{font-family:var(--fe);color:var(--muted);font-size:12.5px;margin-inline-start:6px}
+.ctrls .row{display:flex;align-items:center;gap:9px;margin:6px 0}
+.lbl{font-weight:700;white-space:nowrap;font-size:14px}
+.rng{flex:1;direction:ltr;height:32px;accent-color:var(--c-zyg);touch-action:none}
+output{font-family:var(--fm);font-weight:800;min-width:44px;text-align:center;color:var(--c-zyg);font-size:16px}
+.btns{flex-wrap:wrap}
+.btns button,.chip{min-height:40px;padding:5px 12px;border-radius:12px;border:2px solid var(--pencil);background:var(--paper);font-size:14px;font-weight:700}
+.btns button.on{background:var(--pencil);color:var(--paper)}
+.chip.on{background:var(--cc,var(--pencil));border-color:var(--cc,var(--pencil));color:#fff}
+.cmpkey{gap:8px!important;font-size:12.5px}
+.key{padding:2px 10px;border-radius:12px;border:2px solid transparent;transition:all .25s}
+.key.a{color:var(--ka);border-color:var(--ka)}.key.b{color:var(--kb);border-color:var(--kb)}
+.key.lit.a{background:var(--ka);color:#fff}.key.lit.b{background:var(--kb);color:#fff}
+.readout{border-top:2px dashed var(--pencil);padding-top:6px;font-size:14px;line-height:1.7}
+.eq{font-family:var(--fm);font-weight:800;unicode-bidi:isolate;white-space:nowrap}
+.tbl{width:100%;border-collapse:collapse;font-size:12px;line-height:1.3;margin:2px 0}
+.tbl td,.tbl th{border:1.5px solid var(--pencil);padding:2px 5px;text-align:center}
+.tbl th{background:var(--paper2)}
+.tbl .lit{background:rgba(122,75,198,.16);font-weight:700}
+/* lab2 egg layers */
+.disc{position:absolute;border-radius:50%;transform:translateZ(calc(var(--sep) * var(--n) * 38px));transition:transform 1.05s cubic-bezier(.28,1.6,.55,1);cursor:pointer}
+#book.folded .disc{transform:translateZ(0);transition:transform .32s ease-in}
+.stack.drag .disc,.stack.drag .dsh{transition:none}
+.dsh{position:absolute;border-radius:50%;background:rgba(40,25,10,.2);filter:blur(calc(var(--sep) * var(--n) * 5px + 1px));transform:translate(calc(var(--sep) * var(--n) * 6px),calc(var(--sep) * var(--n) * 11px));transition:transform 1s}
+#book.folded .dsh{transform:none}
+.disc.zona{border:10px solid rgba(201,61,114,.28);background:rgba(255,255,255,.35);box-shadow:inset 0 0 0 1.5px var(--pencil),0 0 0 1.5px var(--pencil)}
+.disc.cyto{background:radial-gradient(circle,rgba(201,61,114,.35) 1.6px,transparent 2.2px) 0 0/14px 14px,radial-gradient(circle,rgba(201,61,114,.25) 1.4px,transparent 2px) 7px 7px/14px 14px,#f7dbe3;border:2px solid var(--pencil)}
+body.dark .disc.cyto{background-color:#5a3443}
+.disc.nuc{background:radial-gradient(circle at 35% 35%,#9b6ad6,#5b2f99);border:2px solid var(--pencil)}
+.disc.sel{box-shadow:0 0 0 4px rgba(255,214,90,.95)!important}
+.dim{opacity:.35;transition:opacity .3s}
+.part{cursor:pointer}
+.part.sel{filter:url(#selglow)}
+/* sorter */
+.sorter{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:4px 0}
+.card{min-height:40px;border-radius:10px;border:2px dashed var(--pencil);background:var(--paper);font-size:12.5px;font-weight:700;padding:4px 8px;line-height:1.35}
+.card.yes{border-style:solid;border-color:var(--c-ox);background:rgba(210,59,47,.12)}
+.card.no{border-style:solid;border-color:var(--good);background:rgba(30,138,76,.12)}
+.card small{display:block;font-weight:500;font-size:12px}
+/* challenge */
+.stars{display:flex;gap:8px;justify-content:center}
+.stars svg{width:44px;height:44px}
+.star-f{fill:#f5b301;stroke:#a86f00}.star-e{fill:none;stroke:var(--pencil)}
+.pips{display:flex;gap:7px;justify-content:center;margin:10px 0;direction:ltr}
+.pip{width:30px;height:30px;border-radius:50%;border:2px solid var(--pencil);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;font-family:var(--fe)}
+.pip.ok{background:var(--good);border-color:var(--good);color:#fff}.pip.no{background:rgba(217,130,43,.25);border-color:var(--soft)}
+.pip.cur{box-shadow:0 0 0 3px rgba(122,75,198,.35)}
+.round{border:2px solid var(--pencil);border-radius:14px;padding:12px 14px;background:var(--paper2)}
+.rq{font-size:16px;font-weight:700;line-height:1.55;margin-bottom:10px}
+.ropts{display:flex;flex-direction:column;gap:8px}
+.ropts .opt{text-align:start;font-size:15px;min-height:46px}
+.countbtns{display:flex;gap:9px;justify-content:center;direction:ltr;flex-wrap:wrap}
+.countbtns .opt{min-width:62px;font:800 18px var(--fe)}
+.srow{display:flex;align-items:center;gap:6px;margin:5px 0;font-size:14px}
+.srow span{flex:1}
+.srow .opt{min-height:36px;font-size:13px;padding:3px 9px}
+.rfb{margin-top:10px;min-height:28px;font-size:14.5px;line-height:1.55}
+.rfb.okk{color:var(--good)}
+.nextbtn{margin-top:8px;min-height:44px;padding:8px 20px;border-radius:12px;border:none;background:var(--c-zyg);color:#fff;font-weight:800;font-size:15px}
+.trophy{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:800}
+/* nav */
+#nav{position:fixed;left:0;right:0;bottom:0;z-index:5;min-height:var(--navH);display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:8px 10px;
+  background:var(--ui);color:var(--uiInk);box-shadow:0 -4px 18px rgba(40,25,10,.25);backdrop-filter:blur(6px)}
+.grp{display:flex;align-items:center;gap:7px}
+.nb{min-width:44px;height:44px;border-radius:12px;border:2px solid currentColor;background:transparent;display:flex;align-items:center;justify-content:center;gap:6px;padding:0 10px;font-weight:800}
+.nb svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.nb.on{background:var(--uiInk);color:var(--paper)}
+.nb:disabled{opacity:.35}
+[dir=rtl] .flipx{transform:scaleX(-1)}
+#dots{display:flex;gap:6px}
+.dot{width:32px;height:32px;border-radius:50%;border:2px solid currentColor;background:transparent;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--fe)}
+.dot.cur{background:var(--c-zyg);border-color:var(--c-zyg);color:#fff}
+.dot.done{box-shadow:0 0 0 3px var(--good)}
+#fx{position:fixed;inset:0;z-index:9;pointer-events:none}
+#coverFront{position:absolute;top:-14px;left:-8px;width:496px;height:calc(var(--ph,860px) + 30px);transform-style:preserve-3d;transform:translateZ(3px);display:none;cursor:pointer}
+#coverFront.show{display:block}
+#coverFront .cf,#coverFront .cb{position:absolute;inset:0;border-radius:6px 14px 14px 6px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+[dir=rtl] #coverFront .cf,[dir=rtl] #coverFront .cb{border-radius:14px 6px 6px 14px}
+#coverFront .cf{background:radial-gradient(120% 70% at 30% 15%,#3a7d5c,#1f4a37 60%,#173827);box-shadow:inset 0 0 0 3px rgba(0,0,0,.25),inset 0 0 60px rgba(0,0,0,.35),0 20px 40px rgba(20,10,0,.45);color:#f3dfa2;text-align:center;overflow:hidden}
+#coverFront .cb{transform:rotateY(180deg);background:repeating-radial-gradient(circle at 30% 40%,#e9dcc0 0 6px,#efe4cb 6px 14px),#efe4cb;box-shadow:inset 0 0 30px rgba(0,0,0,.2)}
+.cvSpine{position:absolute;top:0;bottom:0;width:30px;background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(255,255,255,.06),rgba(0,0,0,.3));}
+[dir=rtl] .cvSpine{right:0}[dir=ltr] .cvSpine{left:0}
+.cvFrame{position:absolute;inset:26px 40px;border:2px solid rgba(243,223,162,.75);border-radius:10px;box-shadow:0 0 0 6px rgba(0,0,0,.08),inset 0 0 0 5px rgba(243,223,162,.0),inset 0 0 0 6px rgba(243,223,162,.45)}
+.gold{background:linear-gradient(180deg,#fff2c4,#e7c66a 45%,#b58a2b 55%,#f0d58a);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 1px 0 rgba(0,0,0,.0)}
+.cvIn{position:absolute;inset:52px 64px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.cvTag{border:1.5px solid #e7c66a;border-radius:20px;padding:4px 16px;font-size:15px;font-weight:700;letter-spacing:.5px;color:#f3dfa2}
+.cvSubj{font-size:64px;font-weight:900;line-height:1.1;margin-top:6px}
+.cvUnit{font-size:20px;font-weight:700;color:#f3dfa2;opacity:.9}
+.cvTitle{font-size:34px;font-weight:900;line-height:1.25}
+.cvMeta{font-size:15px;color:#e9d9a8;opacity:.9}
+.cvRule{width:60%;height:2px;background:linear-gradient(90deg,transparent,#e7c66a,transparent);margin:4px 0}
+.cvBy{margin-top:auto;display:flex;flex-direction:column;gap:2px;align-items:center}
+.cvBy small{font-size:14px;color:#e9d9a8}
+.cvBy b{font-size:26px;font-weight:900}
+.cvOpen{margin-top:12px;border:2px solid #e7c66a;background:rgba(0,0,0,.18);color:#f3dfa2;border-radius:24px;padding:9px 26px;font-size:17px;font-weight:800}
+.cvOpen:hover{background:rgba(231,198,106,.2)}
+body.teacher .page{width:960px}
+body.teacher .pin.lab{display:grid;grid-template-columns:420px 1fr;column-gap:30px;align-content:start;padding:28px 38px}
+body.teacher .pin.lab>.labhead,body.teacher .pin.lab>.hint{grid-column:1/-1}
+body.teacher .pin.lab>.popzone{grid-column:1;grid-row:3/span 6;margin-top:24px}
+body.teacher .pin.lab>:not(.labhead):not(.hint):not(.popzone):not(.foot){grid-column:2}
+body.teacher .tbtn{background:var(--c-zyg);color:#fff;border-color:var(--c-zyg)}
+</style>
+</head>
+<body>
+<svg class="desk" aria-hidden="true">
+  <defs>
+    <filter id="grainF" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.0028 0.075" numOctaves="4" seed="11"/><feColorMatrix type="matrix" values="0 0 0 0 0.55  0 0 0 0 0.38  0 0 0 0 0.20  1.7 0 0 0 -0.62"/></filter>
+    <filter id="poreF" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.6" numOctaves="2" seed="3"/><feColorMatrix type="matrix" values="0 0 0 0 0.45  0 0 0 0 0.30  0 0 0 0 0.15  1.2 0 0 0 -0.62"/></filter>
+    <pattern id="planks" width="4000" height="230" patternUnits="userSpaceOnUse"><rect y="0" width="4000" height="1.4" fill="rgba(90,60,30,.35)"/><rect y="1.4" width="4000" height="1" fill="rgba(255,240,215,.35)"/></pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="#dcbd8f"/>
+  <rect width="100%" height="100%" filter="url(#grainF)" opacity=".55"/>
+  <rect width="100%" height="100%" filter="url(#poreF)" opacity=".35"/>
+  <rect width="100%" height="100%" fill="url(#planks)"/>
+</svg>
+<div class="light"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="5"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="selglow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#ffd65a" flood-opacity="1"/></filter>
+  </defs>
+</svg>
+<div id="viewport"><div id="stage"><div id="scene"><div id="book" class="folded">
+  <div class="cover"></div><div class="block" id="blk"></div><div class="thick"></div>
+  <div class="page sL" id="pA"></div><div class="page sR" id="pB"></div><div id="flipLayer"></div><div id="coverFront"></div>
+</div></div></div></div>
+<div id="offscreen" class="page"></div>
+<nav id="nav"></nav>
+<canvas id="fx"></canvas>
+
+<script>
+"use strict";
+/* ============ helpers ============ */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const ESC=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const N=x=>`<bdi dir="ltr">${x}</bdi>`;
+const EQ=x=>`<bdi dir="ltr" class="eq">${x}</bdi>`;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const ease=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const sstep=(a,b,x)=>{const t=clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
+const lerp=(a,b,t)=>a+(b-a)*t;
+const fmt=x=>(Math.round(x*100)/100).toString();
+const sketch=(w,h,r=9)=>`<svg class="sk" width="${w}" height="${h}"><rect x="1.5" y="1.5" width="${w-3}" height="${h-3}" rx="${r}" fill="none" stroke="var(--pencil)" stroke-width="1.7" filter="url(#rough)"/></svg>`;
+const ICON={
+  chev:'<svg class="flipx" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>',
+  chevN:'<svg class="flipx" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>',
+  moon:'<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>',
+  sun:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>',
+  snd:'<svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>',
+  mute:'<svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>',
+  play:'<svg viewBox="0 0 24 24"><path d="M7 5l12 7-12 7z"/></svg>',
+  pause:'<svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg>',
+  board:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 3 2 4-4"/></svg>'
+};
+const starSVG=f=>`<svg viewBox="0 0 24 24"><path class="${f?'star-f':'star-e'}" stroke-width="1.6" d="M12 2.6l2.9 6 6.5.8-4.8 4.5 1.2 6.5L12 17.3l-5.8 3.1 1.2-6.5L2.6 9.4l6.5-.8z"/></svg>`;
+function rnd(seed){ let s=seed; return ()=>{ s=(s*16807)%2147483647; return (s-1)/2147483646; }; }
+
+/* ============ UI strings ============ */
+const UI={
+ ar:{prev:'السابق',next:'التالي',predict:'توقّع:',lift:'ارفع اللسان لتكشف الإجابة',check:'تحقّق:',teacherShort:'وضع المعلم',exitT:'خروج',
+  compare:'قارن بالتناوب',listen:'استمع',ch:'الفصل',lang:'EN',footer:'التكاثر في الإنسان · الأحياء · الصف العاشر',pages:'كتاب الطالب ص',
+  good:['أحسنت!','ممتاز!','رائع!'],retry:'قريب! جرّب خياراً آخر.',next2:'الجولة التالية',finish:'اعرض النتيجة',again:'أعد التحدّي',verify:'تحقّق',
+  round:(i,n)=>`الجولة ${N(i)} من ${N(n)}`,score:(c,n)=>`إجاباتك الصحيحة: ${N(c+' / '+n)}`,dark:'الوضع الداكن',muteL:'كتم الصوت',motionL:'إيقاف الحركة',learn:'لنتعلّم منها:'},
+ en:{prev:'Previous',next:'Next',predict:'Predict:',lift:'Lift the flap to reveal',check:'Check:',teacherShort:'Teacher mode',exitT:'Exit',
+  compare:'Compare',listen:'Listen',ch:'Chapter',lang:'ع',footer:'Reproduction in humans · Biology · Grade 10',pages:'Student book p.',
+  good:['Well done!','Excellent!','Great!'],retry:'Close! Try another option.',next2:'Next round',finish:'Show result',again:'Restart challenge',verify:'Check',
+  round:(i,n)=>`Round ${N(i)} of ${N(n)}`,score:(c,n)=>`Correct answers: ${N(c+' / '+n)}`,dark:'Dark mode',muteL:'Mute',motionL:'Stop motion',learn:'Let’s learn from it:'}
+};
+const PAGES=['68–70','70','71–72','72–73','74','75–76','77–80'];
+
+/* ============ lesson text ============ */
+const TX={
+ ar:[
+  {k:'الفصل 1 · أعضاء الجهاز التناسلي',t:'أين تبدأ الحياة؟',h:'خلية واحدة صغيرة جداً… تبدأ منها حياة كائن جديد كامل!',
+   p:['يتكاثر الإنسان جنسياً: يندمج مشيج ذكري مع مشيج أنثوي فيتكوّن <b class="k-zyg">الزيجوت (اللاقحة)</b>، وهو الخلية الأولى لكائن حي جديد.',
+      'تتكوّن البويضات في <b class="k-egg">المبيضين</b> وتنتقل عبر <b class="k-egg">قناتي البيض</b> إلى <b class="k-egg">الرحم</b>. وتتكوّن الحيوانات المنوية في <b class="k-sperm">الخصيتين</b> وتنتقل في <b class="k-sperm">الوعاء الناقل</b> إلى <b class="k-sperm">الإحليل</b>.'],
+   law:'<div><span class="k-egg">البويضة:</span> المبيض ← قناة البيض ← الرحم</div><div><span class="k-sperm">الحيوانات المنوية:</span> الخصية ← الوعاء الناقل ← الإحليل</div>',
+   note:'الإحليل عند الذكور ينقل البول والحيوانات المنوية، لكن في أوقات مختلفة.',
+   pq:'لماذا توجد الخصيتان خارج الجسم داخل كيس الصفن؟',
+   pa:'لأن تكوين الحيوانات المنوية حساس جداً للحرارة؛ فخارج الجسم تكون البيئة أبرد مما لو كانت الخصيتان داخله.',
+   cq:'أين تتكوّن البويضات؟',co:['الرحم','المبيض','قناة البيض'],ca:1,ok:'صحيح: يتكوّن في المبيضين البويضات.'},
+  {k:'الفصل 2 · تكوين الأمشاج وتكيّفها',t:'خليتان مختلفتان… لهدف واحد',h:'البويضة أكبر بكثير من الحيوان المنوي، فلماذا يتكوّن من الحيوانات المنوية الملايين؟',
+   p:[`تولد الأنثى وفي مبيضيها آلاف البويضات غير الناضجة. ومن سن البلوغ (${N('10–14')} سنة تقريباً) تنضج بويضة واحدة كل شهر تقريباً وتتحرر في <b>الإباضة</b>.`,
+      `تتكوّن الحيوانات المنوية باستمرار منذ البلوغ (${N('12–14')} سنة تقريباً) بأعداد كبيرة: قذف واحد يحتوي على مليون حيوان منوي تقريباً.`,
+      'لكل مشيج تكيّف يناسب وظيفته: للحيوان المنوي ذيل يسبح به وأنزيمات تخترق الطبقة الشفافة، والبويضة كبيرة فيها مخزن للطاقة.'],
+   law:`<div><span class="k-egg">البويضة:</span> قطرها ${N('0.1 mm')} · لا تتحرك · ${N('1')} شهرياً</div><div><span class="k-sperm">الحيوان المنوي:</span> طوله ${N('0.05 mm')} · يسبح ${N('4 mm')} في الدقيقة</div>`,
+   note:'السيتوبلازم في البويضة يحتوي على المح، وهو مخزن الطاقة.',
+   pq:'أيهما أطول: قطر البويضة أم طول الحيوان المنوي كاملاً بذيله؟',
+   pa:`قطر البويضة! ${EQ('0.1 ÷ 0.05 = 2')}، أي ضعف طول الحيوان المنوي. شغّل «المقياس الحقيقي» في المختبر.`,
+   cq:'ما وظيفة الأنزيمات في رأس الحيوان المنوي؟',co:['تخزّن الطاقة','تكوّن ممراً عبر الطبقة الشفافة','تحرّك الذيل'],ca:1,ok:'صحيح: تهضم ممراً عبر الطبقة الشفافة.'},
+  {k:'الفصل 3 · الإخصاب والانغراس',t:'من خلية واحدة إلى جنين',h:'أين يلتقي المشيجان برأيك: في الرحم أم في مكان آخر؟',
+   p:[`بعد الإباضة تحرّك <b>الأهداب</b> البويضة نحو الرحم. وتموت البويضة خلال ${N('12–24')} ساعة إن لم تُخصَّب، لذلك يحدث <b>الإخصاب</b> في أعلى قناة البيض.`,
+      'يلتحم غشاء رأس حيوان منوي واحد بغشاء البويضة وتندمج النواتان، فيتكوّن <b class="k-zyg">الزيجوت</b>، وتتغيّر الطبقة الشفافة لتمنع دخول حيوانات منوية أخرى.',
+      `ينقسم الزيجوت وهو يتحرك في قناة البيض حتى يصبح كرة من ${N('16')} أو ${N('32')} خلية تُسمّى <b>الجنين</b>، ثم ينغرس في بطانة الرحم: <b>الانغراس</b>.`],
+   law:`<div>الإباضة ← الإخصاب ← الانقسام ← الانغراس</div><div>يتضاعف عدد الخلايا مع كل انقسام:</div><div>${EQ('1 → 2 → 4 → 8 → 16 → 32')}</div>`,
+   note:'ينمو الجنين في الرحم نحو تسعة أشهر، ثم تتقلص عضلات جدار الرحم وتدفعه إلى الخارج.',
+   pq:'أين يحدث الإخصاب عادة؟',
+   pa:`ليس في الرحم! يحدث في أعلى قناة البيض، لأن البويضة تموت خلال ${N('12–24')} ساعة ولا تقطع إلا مسافة قصيرة. تابع الرحلة في المختبر.`,
+   cq:'ماذا تُسمّى عملية دخول الجنين في بطانة الرحم الإسفنجية؟',co:['الإخصاب','الإباضة','الانغراس'],ca:2,ok:'صحيح: هذا هو الانغراس.'},
+  {k:'الفصل 4 · المشيمة والكيس الأمنيوني',t:'جهاز دعامة لحياة الجنين',h:'الجنين لا يأكل ولا يتنفس الهواء… فكيف يحصل على الأكسجين والغذاء؟',
+   p:['ينمو الجنين داخل <b>الكيس الأمنيوني</b> المملوء بـ<b>السائل الأمنيوني</b> الذي يوفّر له بيئة مناسبة للنمو ويحميه من الصدمات.',
+      '<b>المشيمة</b> عضو ليّن ممتد في جدار الرحم يتصل بالجنين عبر <b>الحبل السري</b> (شريانان ووريد). ومن خلالها تتبادل المواد بين دم الأم ودم الجنين.',
+      'ينتشر الأكسجين والغذاء من دم الأم إلى دم الجنين، وثاني أكسيد الكربون والفضلات بالعكس. ولا يختلط الدمان، فالمشيمة حاجز يمنع مرور السموم.'],
+   law:'<div><span class="k-ox">الأم ← الجنين:</span> الأكسجين، المواد الغذائية</div><div><span class="k-wbc">الجنين ← الأم:</span> ثاني أكسيد الكربون، اليوريا</div>',
+   note:`عند الولادة تكون المشيمة قرصاً قطره ${N('12 cm')} وسمكه ${N('3 cm')} تقريباً، وتُسمّى بعد خروجها <b>الخلاص</b>.`,
+   pq:'هل يختلط دم الأم بدم الجنين داخل المشيمة؟',
+   pa:'لا! تنتشر المواد بين الدمين، لكن خلايا الدم لا تعبر الحاجز. لاحظ ذلك في المختبر.',
+   cq:'أيّ مما يلي ينتقل من دم الجنين إلى دم الأم؟',co:['الأكسجين','المواد الغذائية','ثاني أكسيد الكربون'],ca:2,ok:'صحيح: ثاني أكسيد الكربون من نواتج الإخراج.'},
+  {k:'الفصل 5 · دورة الطمث (الحيض)',t:'الرحم يستعد كل شهر',h:'كل شهر يجهّز الرحم بطانة سميكة لجنين قد لا يأتي… فماذا يحدث لها؟',
+   p:['تتحرر عادة بويضة واحدة كل شهر عند المرأة البالغة. وقبل تحررها يزداد سمك بطانة الرحم فتصبح إسفنجية مليئة بالأوعية الدموية الدقيقة لتزويد الجنين بالغذاء والأكسجين.',
+      'إذا لم تُخصَّب البويضة تموت ولا تنغرس، فتتفسّخ البطانة السميكة وتُفقد ببطء عبر المهبل: هذا هو <b class="k-lin">الطمث</b>، ويستمر عادة خمسة أيام.',
+      'ثم يُعاد تكوين بطانة الرحم مرة أخرى استعداداً لاستقبال البويضة التالية.'],
+   law:'<div>تطوّر بويضة وإعادة تكوين البطانة ← الإباضة ← بطانة سميكة ← الطمث (إن لم تُخصَّب)</div>',
+   note:'«دورة الطمث» هي ما يحدث في المبيض وبطانة الرحم كل شهر.',
+   pq:'ماذا يحدث لبطانة الرحم إذا أُخصبت البويضة وانغرس الجنين؟',
+   pa:'تبقى سميكة لتزوّد الجنين بالغذاء والأكسجين، فلا تتفسّخ. جرّب زر «أُخصبت البويضة» في المختبر.',
+   cq:'لماذا يصبح جدار الرحم سميكاً وإسفنجياً قبل الإباضة؟',co:['لدفع البويضة إلى المهبل','لاستقبال الجنين وتزويده بالغذاء والأكسجين','لتكوين البويضات'],ca:1,ok:'صحيح: يستعد لاستقبال الجنين.'},
+  {k:'الفصل 6 · فيروس HIV ومرض الإيدز',t:'فيروس يهاجم المدافعين',h:'ماذا يحدث لجيش إذا هاجم العدوُ الجنودَ أنفسهم؟',
+   p:['<b class="k-hiv">الإيدز (AIDS)</b> متلازمة نقص المناعة المكتسبة، سببها <b class="k-hiv">فيروس HIV</b> الذي يصيب نوعاً من <b class="k-wbc">خلايا الدم البيضاء</b> القادرة على مهاجمة مسببات الأمراض، ويدمّرها ببطء.',
+      'بعد عدة سنوات تنخفض أعدادها كثيراً، فيصبح المصاب عرضة لأمراض أخرى مثل الالتهاب الرئوي. ولا علاج شافياً حتى الآن، لكن الأدوية المضادة للفيروسات الارتجاعية قد تزيد العمر المتوقع كثيراً.',
+      'HIV فيروس ضعيف لا يعيش خارج الجسم، وينتقل فقط بالاتصال المباشر بسوائل الجسم: الاتصال الجنسي، ونقل الدم، ومشاركة الحقن، ومن الأم إلى طفلها.'],
+   law:'<div>HIV ← تدمير خلايا الدم البيضاء ← ضعف المناعة ← أمراض أخرى</div>',
+   note:'اليوم يُفحص الدم المستخدم في نقل الدم للكشف عن HIV قبل استخدامه، ومن الضروري تعقيم أي إبرة للحقن.',
+   pq:'هل ينتقل HIV بالمصافحة أو بالجلوس بجانب المصاب؟',
+   pa:'لا. الفيروس ضعيف لا يعيش خارج الجسم، وينتقل فقط بالاتصال المباشر بسوائل جسم المصاب. جرّب بطاقات «ينقل أم لا؟» في المختبر.',
+   cq:'ما الخلايا التي يدمّرها فيروس HIV؟',co:['خلايا الدم الحمراء','نوع من خلايا الدم البيضاء','خلايا البويضة'],ca:1,ok:'صحيح: يدمّر نوعاً من خلايا الدم البيضاء.'},
+  {k:'الفصل 7 · التحدّي',t:'تحدّي النجوم',h:`${N(7)} جولات من أسئلة نهاية الوحدة. كل إجابة صحيحة تقرّبك من النجمة الثالثة!`,
+   p:['أجب عن الجولات في الصفحة المقابلة. بعد كل إجابة يظهر تفسير قصير.','في إحدى الجولات ستجرّب بالمنزلق كما في مختبر الفصل الثالث.'],
+   law:`<div>${N('6–7')} صحيحة = ${N('★★★')} · ${N('4–5')} = ${N('★★')} · ${N('2–3')} = ${N('★')}</div>`,
+   note:'لا خصم على الخطأ: اقرأ التفسير، فهو جزء من التعلّم.'}
+ ],
+ en:[
+  {k:'Chapter 1 · Reproductive organs',t:'Where does life begin?',h:'One tiny cell… and a whole new organism starts from it!',
+   p:['Humans reproduce sexually: a male gamete fuses with a female gamete to form a <b class="k-zyg">zygote</b>, the first cell of a new organism.',
+      'Eggs form in the <b class="k-egg">ovaries</b> and travel along the <b class="k-egg">oviducts</b> to the <b class="k-egg">uterus</b>. Sperm form in the <b class="k-sperm">testes</b> and travel along the <b class="k-sperm">sperm duct</b> to the <b class="k-sperm">urethra</b>.'],
+   law:'<div><span class="k-egg">Egg:</span> ovary → oviduct → uterus</div><div><span class="k-sperm">Sperm:</span> testis → sperm duct → urethra</div>',
+   note:'In males the urethra carries urine and sperm, but at different times.',
+   pq:'Why are the testes outside the body, inside the scrotum?',
+   pa:'Sperm production is very sensitive to heat; outside the body the environment is cooler.',
+   cq:'Where are eggs made?',co:['Uterus','Ovary','Oviduct'],ca:1,ok:'Right: eggs form in the ovaries.'},
+  {k:'Chapter 2 · Gametes and their adaptations',t:'Two different cells… one goal',h:'The egg is much bigger than a sperm, so why are millions of sperm made?',
+   p:[`A female is born with thousands of immature eggs. From puberty (about ${N('10–14')} years) one egg matures about every month and is released at <b>ovulation</b>.`,
+      `Sperm are made continuously from puberty (about ${N('12–14')} years) in huge numbers: one ejaculation contains about a million sperm.`,
+      'Each gamete suits its job: the sperm has a tail and enzymes to get through the jelly layer; the egg is large with an energy store.'],
+   law:`<div><span class="k-egg">Egg:</span> ${N('0.1 mm')} across · cannot move · ${N('1')} a month</div><div><span class="k-sperm">Sperm:</span> ${N('0.05 mm')} long · swims ${N('4 mm')} per minute</div>`,
+   note:'The egg’s cytoplasm contains yolk, its energy store.',
+   pq:'Which is longer: the egg’s diameter or the whole sperm including its tail?',
+   pa:`The egg’s diameter! ${EQ('0.1 ÷ 0.05 = 2')}, twice the sperm’s length. Turn on “Real scale” in the lab.`,
+   cq:'What do the enzymes in the sperm head do?',co:['Store energy','Make a path through the jelly layer','Move the tail'],ca:1,ok:'Right: they digest a path through the jelly layer.'},
+  {k:'Chapter 3 · Fertilisation and implantation',t:'From one cell to an embryo',h:'Where do you think the gametes meet: in the uterus or somewhere else?',
+   p:[`After ovulation, <b>cilia</b> move the egg towards the uterus. The egg dies within ${N('12–24')} hours if not fertilised, so <b>fertilisation</b> happens at the top of the oviduct.`,
+      'The head membrane of one sperm fuses with the egg membrane and the nuclei fuse, forming a <b class="k-zyg">zygote</b>; the jelly layer changes to stop other sperm entering.',
+      `The zygote divides as it moves down the oviduct into a ball of ${N('16')} or ${N('32')} cells called an <b>embryo</b>, which sinks into the uterus lining: <b>implantation</b>.`],
+   law:`<div>Ovulation → fertilisation → division → implantation</div><div>Cells double with each division:</div><div>${EQ('1 → 2 → 4 → 8 → 16 → 32')}</div>`,
+   note:'The embryo grows in the uterus for about nine months; then the uterus wall muscles contract and push it out.',
+   pq:'Where does fertilisation usually happen?',
+   pa:`Not in the uterus! It happens at the top of the oviduct, because the egg dies within ${N('12–24')} hours and travels only a short distance. Follow the journey in the lab.`,
+   cq:'What is it called when the embryo sinks into the spongy uterus lining?',co:['Fertilisation','Ovulation','Implantation'],ca:2,ok:'Right: that is implantation.'},
+  {k:'Chapter 4 · Placenta and amniotic sac',t:'A life-support system for the fetus',h:'The fetus doesn’t eat or breathe air… so how does it get oxygen and food?',
+   p:['The fetus grows in the <b>amniotic sac</b>, full of <b>amniotic fluid</b>, which suits its growth and protects it from knocks.',
+      'The <b>placenta</b>, a soft organ in the uterus wall, is joined to the fetus by the <b>umbilical cord</b> (two arteries, one vein). Mother’s and fetus’s blood exchange substances through it.',
+      'Oxygen and food diffuse to the fetus; carbon dioxide and wastes go back. The bloods never mix, and the placenta blocks toxins.'],
+   law:'<div><span class="k-ox">Mother → fetus:</span> oxygen, nutrients</div><div><span class="k-wbc">Fetus → mother:</span> carbon dioxide, urea</div>',
+   note:`At birth the placenta is a disc about ${N('12 cm')} across and ${N('3 cm')} thick; once delivered it is called the <b>afterbirth</b>.`,
+   pq:'Does the mother’s blood mix with the fetus’s blood in the placenta?',
+   pa:'No! Substances diffuse between them, but blood cells never cross the barrier. Watch it in the lab.',
+   cq:'Which passes from the fetus’s blood to the mother’s blood?',co:['Oxygen','Nutrients','Carbon dioxide'],ca:2,ok:'Right: carbon dioxide is an excretory product.'},
+  {k:'Chapter 5 · The menstrual cycle',t:'The uterus gets ready every month',h:'Every month the uterus builds a thick lining for an embryo that may not come… so what happens to it?',
+   p:['An adult woman usually releases one egg a month. Before that, the uterus lining thickens and becomes spongy and full of tiny blood vessels, ready to feed an embryo.',
+      'If the egg is not fertilised it dies, so the lining breaks down and is slowly lost through the vagina: <b class="k-lin">menstruation</b>, usually five days.',
+      'Then the lining is rebuilt for the next egg.'],
+   law:'<div>new egg develops & lining rebuilds → ovulation → thick lining → menstruation (if not fertilised)</div>',
+   note:'The “menstrual cycle” is what happens in the ovary and the uterus lining every month.',
+   pq:'What happens to the lining if the egg is fertilised and the embryo implants?',
+   pa:'It stays thick to feed the embryo, so it does not break down. Try “Egg fertilised” in the lab.',
+   cq:'Why does the uterus wall become thick and spongy before ovulation?',co:['To push the egg out','To receive and feed an embryo','To make eggs'],ca:1,ok:'Right: it is getting ready for an embryo.'},
+  {k:'Chapter 6 · HIV and AIDS',t:'A virus that attacks the defenders',h:'What happens to an army if the enemy attacks the soldiers themselves?',
+   p:['<b class="k-hiv">AIDS</b> is caused by <b class="k-hiv">HIV</b>, which infects a type of <b class="k-wbc">white blood cell</b> that attacks pathogens, and slowly destroys it.',
+      'After several years these cells fall a lot and other diseases, such as pneumonia, take hold. There is no cure, but antiretroviral drugs can greatly extend life.',
+      'HIV is weak and cannot survive outside the body. It spreads only by direct contact with body fluids: sexual contact, blood, shared needles, mother to child.'],
+   law:'<div>HIV → white blood cells destroyed → weak immunity → other diseases</div>',
+   note:'Blood for transfusions is now tested for HIV, and injection needles must be sterilised.',
+   pq:'Can HIV be passed on by shaking hands or sitting next to an infected person?',
+   pa:'No. The virus cannot live outside the body; it spreads only by direct contact with body fluids. Try the “Spreads or not?” cards in the lab.',
+   cq:'Which cells does HIV destroy?',co:['Red blood cells','A type of white blood cell','Egg cells'],ca:1,ok:'Right: a type of white blood cell.'},
+  {k:'Chapter 7 · Challenge',t:'Star challenge',h:`${N(7)} rounds from the end-of-unit questions. Each right answer brings you closer to the third star!`,
+   p:['Answer the rounds on the opposite page. A short explanation follows each answer.','In one round you will use a slider, like in the Chapter 3 lab.'],
+   law:`<div>${N('6–7')} correct = ${N('★★★')} · ${N('4–5')} = ${N('★★')} · ${N('2–3')} = ${N('★')}</div>`,
+   note:'No penalty for mistakes: read the explanation, it is part of learning.'}
+ ]
+};
+
+/* ============ organ / part dictionaries ============ */
+const ORG={
+ ar:{ovary:['المبيض','Ovary','تتكوّن فيه البويضات، وتتحرر منه بويضة ناضجة في الإباضة.'],
+  oviduct:['قناة البيض (قناة فالوب)','Oviduct','تنقل البويضة إلى الرحم، ويحدث في أعلاها الإخصاب. طرفها العلوي على شكل قمع قريب جداً من المبيض.'],
+  uterus:['الرحم','Uterus','جدرانه عضلية سميكة؛ صغير بحجم قبضة اليد لكنه يتوسع كثيراً خلال الحمل، وفيه ينمو الجنين.'],
+  cervix:['عنق الرحم','Cervix','الجزء السفلي من الرحم، أسطواني عضلي له فتحة ضيقة، ويؤدي إلى المهبل.'],
+  vagina:['المهبل','Vagina','يؤدي إلى خارج الجسم، ويستقبل الحيوانات المنوية.'],
+  testis:['الخصية','Testis','تتكوّن فيها الحيوانات المنوية باستمرار منذ البلوغ.'],
+  epid:['البربخ','Epididymis','ملتصق بالخصية ويتصل بالوعاء الناقل (الشكل ٤-٣).'],
+  spermduct:['الوعاء الناقل','Sperm duct','أنبوب ينقل الحيوانات المنوية من الخصية إلى الإحليل.'],
+  prostate:['غدة البروستات','Prostate gland','تفرز مع الحويصلات المنوية سائلاً تسبح فيه الحيوانات المنوية، يُسمّى المني (السائل المنوي).'],
+  vesicle:['الحويصلة المنوية','Seminal vesicle','تفرز مع غدة البروستات السائل الذي تسبح فيه الحيوانات المنوية.'],
+  bladder:['المثانة','Bladder','ينقل الإحليل البول منها إلى خارج الجسم.'],
+  urethra:['الإحليل','Urethra','ينقل البول والحيوانات المنوية في أوقات مختلفة.'],
+  penis:['القضيب','Penis','يمتد فيه الإحليل وينفتح في قمته إلى خارج الجسم.'],
+  scrotum:['كيس الصفن','Scrotum','كيس جلدي يحيط بالخصيتين خارج الجسم، حيث البيئة أبرد.']},
+ en:{ovary:['Ovary','','Eggs form here; a mature egg is released at ovulation.'],
+  oviduct:['Oviduct (Fallopian tube)','','Carries the egg to the uterus; fertilisation happens at its top. Its funnel-shaped end lies very close to the ovary.'],
+  uterus:['Uterus','','Thick muscular walls; fist-sized but stretches a lot in pregnancy. The embryo grows here.'],
+  cervix:['Cervix','','The lower, neck-like part of the uterus: muscular with a narrow opening, leading to the vagina.'],
+  vagina:['Vagina','','Leads to the outside of the body and receives sperm.'],
+  testis:['Testis','','Sperm are made here continuously from puberty.'],
+  epid:['Epididymis','','Attached to the testis and joined to the sperm duct (Fig. 4-3).'],
+  spermduct:['Sperm duct','','Tube carrying sperm from the testis to the urethra.'],
+  prostate:['Prostate gland','','With the seminal vesicles, secretes the fluid sperm swim in: semen (seminal fluid).'],
+  vesicle:['Seminal vesicle','','With the prostate, secretes the fluid sperm swim in.'],
+  bladder:['Bladder','','The urethra carries urine from it out of the body.'],
+  urethra:['Urethra','','Carries urine and sperm, at different times.'],
+  penis:['Penis','','The urethra runs through it and opens at its tip.'],
+  scrotum:['Scrotum','','Skin sac holding the testes outside the body, where it is cooler.']}
+};
+const PART={
+ ar:{zona:['الطبقة الشفافة','Jelly layer','تحيط بالبويضة؛ تخترقها أنزيمات الحيوان المنوي، وتتغيّر بعد الإخصاب لتمنع دخول حيوانات منوية أخرى.'],
+  cyto:['غشاء الخلية والسيتوبلازم','Membrane & cytoplasm','السيتوبلازم يحتوي على المح (مخزن الطاقة)، ويلتحم غشاء الخلية بغشاء رأس الحيوان المنوي عند الإخصاب.'],
+  nuc:['نواة البويضة','Nucleus','تحتوي على الكروموسومات، وتندمج مع نواة الحيوان المنوي.'],
+  enz:['الأنزيمات الهاضمة','Enzymes','تكوّن ممراً عبر الطبقة الشفافة المحيطة بخلية البويضة.'],
+  head:['الرأس','Head','يحمل النواة والأنزيمات.'],
+  snuc:['نواة الحيوان المنوي','Nucleus','تحتوي على الكروموسومات.'],
+  tail:['الذيل','Tail',`يساعد على الحركة: يسبح بمعدل ${N('4 mm')} في الدقيقة.`]},
+ en:{zona:['Jelly layer','','Surrounds the egg; sperm enzymes get through it, and it changes after fertilisation to stop other sperm entering.'],
+  cyto:['Cell membrane & cytoplasm','','The cytoplasm contains yolk (energy store); the membrane fuses with the sperm head membrane at fertilisation.'],
+  nuc:['Egg nucleus','','Contains chromosomes; fuses with the sperm nucleus.'],
+  enz:['Digestive enzymes','','Make a path through the jelly layer around the egg.'],
+  head:['Head','','Carries the nucleus and enzymes.'],
+  snuc:['Sperm nucleus','','Contains chromosomes.'],
+  tail:['Tail','',`Helps it move: swims about ${N('4 mm')} per minute.`]}
+};
+
+/* ============ state ============ */
+const NCH=7;
+const state={lang:'ar',dark:matchMedia('(prefers-color-scheme: dark)').matches,muted:false,motion:true,teacher:false,
+ cover:true,spread:0,spage:0,checks:{},checkPick:{},flaps:{},
+ L:[{sys:'f',t:.3,sel:null},{sep:.5,real:false,dist:10,sel:'zona',side:'egg'},{t:.3,fert:true},{subs:{o2:1,food:1,co2:1,urea:1,tox:1},rate:.5,dir:null,cnt:[0,0,0]},{t:.2,fert:false,play:false},{t:.3,med:false,rev:{}}],
+ ch:{i:0,ans:[],lvl:2,done:false,sort:{}}};
+let mode='spread',busy=false;
+const t=k=>UI[state.lang][k];
+const isRTL=()=>state.lang==='ar';
+const S=i=>state.L[i];
+
+/* ============ audio ============ */
+const A={ctx:null,master:null,osc:null,vg:null,timer:0,listen:false,listenIv:0};
+function audioInit(){ if(A.ctx){ if(A.ctx.state==='suspended') A.ctx.resume(); return; }
+  const AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+  A.ctx=new AC(); A.master=A.ctx.createGain(); A.master.gain.value=state.muted?0:.5;
+  const comp=A.ctx.createDynamicsCompressor(); A.master.connect(comp); comp.connect(A.ctx.destination); }
+function voice(freq){ if(!A.ctx) return; const now=A.ctx.currentTime;
+  if(!A.osc){ A.osc=A.ctx.createOscillator(); A.osc.type='triangle'; A.vg=A.ctx.createGain(); A.vg.gain.value=0;
+    const lp=A.ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=1800; A.osc.connect(lp); lp.connect(A.vg); A.vg.connect(A.master); A.osc.frequency.value=freq; A.osc.start(); }
+  A.osc.frequency.setTargetAtTime(freq,now,.035); A.vg.gain.setTargetAtTime(.1,now,.04);
+  clearTimeout(A.timer); if(!A.listen) A.timer=setTimeout(voiceOff,1500); }
+function voiceOff(){ if(A.vg&&A.ctx) A.vg.gain.setTargetAtTime(0,A.ctx.currentTime,.09); }
+function blip(f,d=.14,type='sine',v=.15,at=0){ if(!A.ctx) return; const t0=A.ctx.currentTime+at; const o=A.ctx.createOscillator(), g=A.ctx.createGain();
+  o.type=type; o.frequency.value=f; g.gain.setValueAtTime(0,t0); g.gain.linearRampToValueAtTime(v,t0+.012); g.gain.exponentialRampToValueAtTime(.0005,t0+d);
+  o.connect(g); g.connect(A.master); o.start(t0); o.stop(t0+d+.05); }
+function chord(fs,d=.5,v=.08){ fs.forEach((f,i)=>blip(f,d,'triangle',v,i*.05)); }
+function noise(d=.45,f0=700,f1=2600,v=.12){ if(!A.ctx) return; const n=A.ctx.sampleRate*d, b=A.ctx.createBuffer(1,n,A.ctx.sampleRate), dd=b.getChannelData(0);
+  for(let i=0;i<n;i++) dd[i]=(Math.random()*2-1)*Math.pow(1-i/n,1.5);
+  const s=A.ctx.createBufferSource(); s.buffer=b; const bp=A.ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=.8;
+  const t0=A.ctx.currentTime; bp.frequency.setValueAtTime(f0,t0); bp.frequency.exponentialRampToValueAtTime(f1,t0+d*.9);
+  const g=A.ctx.createGain(); g.gain.value=v; s.connect(bp); bp.connect(g); g.connect(A.master); s.start(); }
+const flipSound=()=>noise();
+function stopSounds(){ A.listen=false; clearInterval(A.listenIv); voiceOff(); $$('.lis').forEach(b=>b.classList.remove('on')); if(S(4).play){S(4).play=false;} }
+document.addEventListener('pointerdown',audioInit,{capture:true});
+document.addEventListener('keydown',audioInit,{capture:true});
+
+/* ============ pens & animation loop ============ */
+let PENS=[], ANIMS=[];
+function setPen(svg,segs){ if(!svg) return;
+  svg.innerHTML=segs.map(s=>`<path class="pp" d="${s.d}" stroke="${s.c}" ${s.w?`stroke-width="${s.w}"`:''}/>`).join('')+'<circle class="pdot off" r="5.5" cx="0" cy="0"/>';
+  const paths=$$('path',svg), lens=paths.map(p=>{try{return p.getTotalLength()}catch(e){return 0}});
+  paths.forEach((p,i)=>{p.style.strokeDasharray=lens[i]+' '+lens[i]; p.style.strokeDashoffset=lens[i];});
+  PENS=PENS.filter(p=>p.svg!==svg&&p.svg.isConnected);
+  PENS.push({svg,paths,lens,dot:$('circle',svg),t0:performance.now(),total:lens.reduce((a,b)=>a+b,0)}); }
+function addAnim(root,fn){ if(root._anim) { root._anim.fn=fn; return; } const a={root,fn}; root._anim=a; ANIMS.push(a); }
+let lastNow=performance.now();
+function frame(now){
+  const dt=Math.min(60,now-lastNow); lastNow=now;
+  PENS=PENS.filter(p=>p.svg.isConnected);
+  for(const p of PENS){ if(!p.total) continue;
+    const dur=Math.max(700,p.total/0.42), cyc=dur+1500, tt=state.motion?(now-p.t0)%cyc:cyc;
+    let drawn=Math.min(1,tt/dur)*p.total, acc=0, pt=null;
+    p.paths.forEach((path,i)=>{ const L=p.lens[i], here=Math.max(0,Math.min(L,drawn-acc)); path.style.strokeDashoffset=L-here; if(here>0&&here<L&&!pt) pt=path.getPointAtLength(here); acc+=L; });
+    if(pt&&tt<dur){p.dot.setAttribute('cx',pt.x);p.dot.setAttribute('cy',pt.y);p.dot.classList.remove('off');} else p.dot.classList.add('off'); }
+  ANIMS=ANIMS.filter(a=>a.root.isConnected&&!a.root.closest('#offscreen'));
+  for(const a of ANIMS){ try{ a.fn(now,state.motion?dt:0); }catch(e){ console.error(e); } }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+/* ============ shared page parts ============ */
+function footer(ci){ return `<div class="foot">${t('footer')} · ${t('ch')} ${N(ci+1)} · ${t('pages')} ${N(PAGES[ci])}</div>`; }
+function labHead(title,hint){ return `<div class="labhead"><h2>${title}</h2><button class="tbtn" data-act="teacher">${ICON.board}<span>${state.teacher?t('exitT')+' (Esc)':t('teacherShort')}</span></button></div><div class="hint">${hint}</div>`; }
+function pop({x,y,w,h,rise=-52,inner,shadow=true}){ return (shadow?`<div class="pshadow" style="left:${x-18}px;width:${w+36}px;top:${y+h-26}px;height:44px"></div>`:'')+
+  `<div class="pop" style="--rise:${rise}deg;left:${x}px;top:${y}px;width:${w}px;height:${h}px"><div class="panel">${sketch(w,h)}${inner}</div></div>`; }
+const rng=(key,min,max,step,val,label,out=true)=>`<div class="row"><span class="lbl">${label}</span><input type="range" class="rng" min="${min}" max="${max}" step="${step}" value="${val}" data-in="${key}" dir="ltr" aria-label="${ESC(label.replace(/<[^>]+>/g,''))}">${out?'<output></output>':''}</div>`;
+const cmpKeys=(a,b,ca,cb)=>`<div class="row cmpkey" style="--ka:${ca};--kb:${cb}"><span class="key a">${a}</span><span class="key b">${b}</span></div>`;
+function textPage(ci){
+  const L=TX[state.lang][ci];
+  if(ci===6) return chalText(L,ci);
+  const pick=state.checkPick[ci];
+  return `<div class="pin text" data-ci="${ci}">
+   <div class="kicker">${L.k}</div><h1 class="ttl">${L.t}</h1><p class="hook">${L.h}</p>
+   ${L.p.map(p=>`<p>${p}</p>`).join('')}
+   <div class="law">${L.law}</div><aside class="note">${L.note}</aside>
+   <div class="predict"><div class="pq"><b>${t('predict')}</b> ${L.pq}</div>
+     <div class="flapwrap"><div class="pa">${L.pa}</div><button class="flap ${state.flaps[ci]?'open':''}" data-act="flap" data-ci="${ci}">${t('lift')} ⬆</button></div></div>
+   <div class="check"><div class="cq"><b>${t('check')}</b> ${L.cq}</div>
+     <div class="opts">${L.co.map((o,i)=>`<button class="opt ${pick===i?(i===L.ca?'right':'wrong'):''}" data-act="check" data-ci="${ci}" data-i="${i}">${o}</button>`).join('')}</div>
+     <div class="cfb">${pick===undefined?'':pick===L.ca?'<span class="ok">'+L.ok+'</span>':t('retry')}</div></div>
+   ${footer(ci)}</div>`;
+}
+function infoHTML(d){ if(!d) return ''; return `<b>${d[0]}</b>${d[1]?`<span class="en">${d[1]}</span>`:''}<div>${d[2]}</div>`; }
+
+/* ============ diagrams ============ */
+const FEM=`
+ <line class="ol" x1="98" y1="124" x2="140" y2="104"/><line class="ol" x1="274" y1="124" x2="232" y2="104"/>
+ <g class="org" data-org="vagina" data-act="org"><path d="M172 198 L166 254 L206 254 L200 198 Z"/></g>
+ <g class="org" data-org="cervix" data-act="org"><path d="M170 178 L202 178 L200 198 L172 198 Z"/></g>
+ <g class="org" data-org="uterus" data-act="org"><path d="M134 84 C134 52 238 52 238 84 C238 128 212 158 202 178 L170 178 C160 158 134 128 134 84 Z"/><path class="lining" d="M152 88 C170 80 202 80 220 88 L192 160 L180 160 Z"/></g>
+ <g class="org tube" data-org="oviduct" data-act="org"><path d="M138 88 C116 72 86 60 66 74 C54 84 50 100 56 112"/><path d="M234 88 C256 72 286 60 306 74 C318 84 322 100 316 112"/>
+   <path class="hit" d="M138 88 C116 72 86 60 66 74 C54 84 50 100 56 112"/><path class="hit" d="M234 88 C256 72 286 60 306 74 C318 84 322 100 316 112"/></g>
+ <path class="ol" d="M56 112 l-9 5 M56 112 l-4 10 M56 112 l4 10 M316 112 l9 5 M316 112 l4 10 M316 112 l-4 10"/>
+ <g class="org" data-org="ovary" data-act="org"><ellipse cx="78" cy="126" rx="20" ry="13"/><ellipse cx="294" cy="126" rx="20" ry="13"/></g>
+ <circle cx="72" cy="124" r="3" class="ol"/><circle cx="84" cy="129" r="2.4" class="ol"/><circle cx="288" cy="124" r="3" class="ol"/><circle cx="300" cy="129" r="2.4" class="ol"/>`;
+const JPF='M294 124 C306 120 318 116 316 108 C320 92 312 80 304 74 C286 60 256 72 234 86 C214 98 196 104 186 120 L186 150';
+const SEGF=[['ovary',0,.07],['oviduct',.07,.8],['uterus',.8,1]];
+const MAL=`
+ <g class="org" data-org="scrotum" data-act="org"><ellipse cx="120" cy="198" rx="34" ry="42"/><ellipse cx="252" cy="198" rx="34" ry="42"/></g>
+ <g class="org" data-org="penis" data-act="org"><path d="M172 124 L172 244 Q186 258 200 244 L200 124 Z"/></g>
+ <g class="org" data-org="bladder" data-act="org"><path d="M146 30 C146 6 226 6 226 30 C226 56 206 68 186 68 C166 68 146 56 146 30 Z"/></g>
+ <g class="org" data-org="vesicle" data-act="org"><ellipse cx="134" cy="66" rx="9" ry="17" transform="rotate(-22 134 66)"/><ellipse cx="238" cy="66" rx="9" ry="17" transform="rotate(22 238 66)"/></g>
+ <g class="org tube" data-org="spermduct" data-act="org"><path d="M104 176 C98 150 92 110 104 80 C112 58 140 46 160 56 C172 62 178 74 182 86"/><path d="M268 176 C274 150 280 110 268 80 C260 58 232 46 212 56 C200 62 194 74 190 86"/>
+   <path class="hit" d="M104 176 C98 150 92 110 104 80 C112 58 140 46 160 56 C172 62 178 74 182 86"/><path class="hit" d="M268 176 C274 150 280 110 268 80 C260 58 232 46 212 56 C200 62 194 74 190 86"/></g>
+ <g class="org tube" data-org="urethra" data-act="org"><path d="M186 68 L186 250" style="stroke-width:6"/><path class="hit" d="M186 68 L186 250"/></g>
+ <g class="org" data-org="prostate" data-act="org"><ellipse cx="186" cy="86" rx="20" ry="12"/></g>
+ <g class="org" data-org="testis" data-act="org"><ellipse cx="120" cy="198" rx="18" ry="26"/><ellipse cx="252" cy="198" rx="18" ry="26"/></g>
+ <g class="org tube" data-org="epid" data-act="org"><path d="M104 178 C94 188 94 212 106 222" style="stroke-width:7"/><path d="M268 178 C278 188 278 212 266 222" style="stroke-width:7"/>
+   <path class="hit" d="M104 178 C94 188 94 212 106 222"/><path class="hit" d="M268 178 C278 188 278 212 266 222"/></g>`;
+const JPM='M252 198 C262 198 270 192 270 180 C274 150 280 110 268 80 C260 58 232 46 212 56 C200 62 194 74 188 86 L186 100 L186 250';
+const SEGM=[['testis',0,.06],['epid',.06,.13],['spermduct',.13,.6],['prostate',.6,.68],['urethra',.68,1]];
+const NOTE5=[262,330,392,466,523];
+
+/* ============ LAB 1: reproductive organs (hero) ============ */
+const LX1={ar:{title:'مختبر: رحلة في الجهاز التناسلي',hint:'اسحب «الرحلة»: يضيء كل عضو تمرّ به الخلية ويُسمع صوته. انقر أي عضو لتعرف وظيفته.',
+  f:'الجهاز الأنثوي',m:'الجهاز الذكري',trip:'الرحلة',stage:(k,n)=>`المرحلة ${N(k)} من ${N(n)}`,fe:'مسار البويضة',me:'مسار الحيوانات المنوية'},
+ en:{title:'Lab: a journey through the system',hint:'Drag “Journey”: each organ the cell passes lights up and sounds. Tap any organ to see its job.',
+  f:'Female system',m:'Male system',trip:'Journey',stage:(k,n)=>`Stage ${N(k)} of ${N(n)}`,fe:'Egg path',me:'Sperm path'}};
+const LAB1={
+ html(){ const X=LX1[state.lang], s=S(0);
+  return `<div class="pin lab" data-lab="0">${labHead(X.title,X.hint)}
+   <div class="popzone" style="height:284px">${pop({x:14,y:0,w:372,h:268,rise:-50,inner:`<svg class="dg" width="372" height="268" viewBox="0 0 372 268"></svg><svg class="penlayer"></svg>`})}</div>
+   <div class="ctrls"><div class="row"><button class="chip" data-act="sys" data-v="f" style="--cc:var(--c-egg)">${X.f}</button><button class="chip" data-act="sys" data-v="m" style="--cc:var(--c-sperm)">${X.m}</button></div>
+   ${rng('trip',0,1000,1,Math.round(s.t*1000),X.trip,false)}
+   <div class="row btns"><button class="cmp" data-act="cmp">${t('compare')}</button><button class="lis" data-act="listen">${t('listen')}</button></div>
+   ${cmpKeys(X.fe,X.me,'var(--c-egg)','var(--c-sperm)')}</div>
+   <div class="info"></div><div class="readout"></div>${footer(0)}</div>`; },
+ update(root){ const s=S(0), X=LX1[state.lang], svg=$('.dg',root), f=s.sys==='f';
+  if(root._sys!==s.sys){ svg.innerHTML=(f?FEM:MAL)+`<path class="jp" d="${f?JPF:JPM}" fill="none" stroke="none"/><g class="trav"></g>`; root._sys=s.sys;
+    root._jp=$('.jp',svg); root._len=root._jp.getTotalLength(); svg.style.setProperty('--hl',f?'rgba(201,61,114,.55)':'rgba(15,135,150,.5)');
+    setPen($('.penlayer',root),[{d:f?JPF:JPM,c:f?'var(--c-egg)':'var(--c-sperm)'}]); }
+  const segs=f?SEGF:SEGM; let idx=segs.findIndex(([o,a,b])=>s.t>=a&&s.t<=b); if(idx<0) idx=segs.length-1;
+  const cur=segs[idx][0], show=s.sel||cur;
+  $$('.org',svg).forEach(g=>g.classList.toggle('hl',g.dataset.org===show));
+  const p=root._jp.getPointAtLength(s.t*root._len), q=root._jp.getPointAtLength(Math.max(0,s.t*root._len-6));
+  const ang=Math.atan2(p.y-q.y,p.x-q.x)*180/Math.PI;
+  $('.trav',svg).innerHTML=f?`<circle cx="${p.x}" cy="${p.y}" r="8" fill="var(--c-egg)" stroke="#fff" stroke-width="2" filter="url(#glow)"/>`
+    :`<g transform="translate(${p.x} ${p.y}) rotate(${ang})" filter="url(#glow)"><ellipse rx="5" ry="3.4" fill="var(--c-sperm)"/><path d="M-5 0 q-5 -4 -10 0 t-10 0" stroke="var(--c-sperm)" stroke-width="1.8" fill="none"/></g>`;
+  $$('[data-act=sys]',root).forEach(b=>b.classList.toggle('on',b.dataset.v===s.sys));
+  const r=$('.rng',root); if(Math.abs(+r.value/1000-s.t)>.002) r.value=Math.round(s.t*1000);
+  $('.key.a',root).classList.toggle('lit',f); $('.key.b',root).classList.toggle('lit',!f);
+  $('.info',root).innerHTML=infoHTML(ORG[state.lang][show]);
+  const chain=segs.map(([o],i)=>i===idx?`<b class="${f?'k-egg':'k-sperm'}">${ORG[state.lang][o][0]}</b>`:ORG[state.lang][o][0]).join(isRTL()?' ← ':' → ');
+  $('.readout',root).innerHTML=`${X.stage(idx+1,segs.length)} · ${f?X.fe:X.me}<br>${chain}`;
+  root._idx=idx; },
+ input(k,el,root){ const s=S(0); s.t=+el.value/1000; s.sel=null; this.update(root); voice(NOTE5[root._idx]*(1+s.t*.06)); },
+ act(a,el,root){ const s=S(0);
+  if(a==='sys'){ s.sys=el.dataset.v; s.sel=null; stopCompare(); this.update(root); chord(s.sys==='f'?[392,494,587]:[294,370,440],.35); return true; }
+  if(a==='org'){ s.sel=el.dataset.org; this.update(root); blip(523,.15,'triangle',.12); return true; } },
+ cmp(root){ const s=S(0); s.sys=s.sys==='f'?'m':'f'; s.sel=null; this.update(root); blip(s.sys==='f'?523:392,.25,'triangle',.12); },
+ listen(root){ voice(NOTE5[root._idx||0]*(1+S(0).t*.06)); }
+};
+
+/* ============ LAB 2: gametes ============ */
+const LX2={ar:{title:'مختبر: البويضة والحيوان المنوي',hint:'فكّك طبقات البويضة، وانقر أي جزء لتعرف وظيفته، ثم قارن بالمقياس الحقيقي.',
+  sep:'فكّك طبقات البويضة',real:'المقياس الحقيقي',dist:'مسافة السباحة',egg:'البويضة',sperm:'الحيوان المنوي',
+  rows:[['الحجم',`القطر ${N('0.1 mm')}`,`الطول ${N('0.05 mm')}`],['الحركة','تحرّكها الأهداب',`تسبح ${N('4 mm/min')}`],['العدد',`${N('1–2')} شهرياً`,'مليون تقريباً في القذف']],
+  ratio:'قطر البويضة ÷ طول الحيوان المنوي',time:'زمن السباحة = المسافة ÷ السرعة',min:'دقيقة',mag:'مكبَّر ×2.5'},
+ en:{title:'Lab: egg and sperm',hint:'Pull the egg’s layers apart, tap any part to see its job, then compare at real scale.',
+  sep:'Pull egg layers apart',real:'Real scale',dist:'Swimming distance',egg:'Egg',sperm:'Sperm',
+  rows:[['Size',`${N('0.1 mm')} across`,`${N('0.05 mm')} long`],['Movement','moved by cilia',`swims ${N('4 mm/min')}`],['Number',`${N('1–2')} a month`,'~a million per ejaculation']],
+  ratio:'egg diameter ÷ sperm length',time:'swim time = distance ÷ speed',min:'min',mag:'magnified ×2.5'}};
+const LAB2={
+ html(){ const X=LX2[state.lang], s=S(1);
+  const discs=[['zona',1,22,26,176],['cyto',2,36,40,148],['nuc',3,88,92,44]];
+  return `<div class="pin lab" data-lab="1">${labHead(X.title,X.hint)}
+   <div class="popzone stack" style="height:250px;--sep:${s.sep}">
+     ${discs.map(([p,n,x,y,d])=>`<div class="dsh" style="left:${x}px;top:${y}px;width:${d}px;height:${d}px;--n:${n}"></div>`).join('')}
+     ${discs.map(([p,n,x,y,d])=>`<div class="disc ${p} eggp" data-act="part" data-p="${p}" style="left:${x}px;top:${y}px;width:${d}px;height:${d}px;--n:${n}"></div>`).join('')}
+     <svg class="dg" width="210" height="278" style="pointer-events:none"><g class="eggbar"><line x1="22" y1="216" x2="198" y2="216" stroke="var(--c-egg)" stroke-width="2"/><line x1="22" y1="210" x2="22" y2="222" stroke="var(--c-egg)" stroke-width="2"/><line x1="198" y1="210" x2="198" y2="222" stroke="var(--c-egg)" stroke-width="2"/><text x="110" y="238" text-anchor="middle" style="fill:var(--c-egg);font-weight:800">0.1 mm</text></g>
+       <text x="110" y="16" text-anchor="middle" style="font-size:14px;font-weight:800;fill:var(--c-egg)">${X.egg}</text></svg>
+     ${pop({x:226,y:0,w:170,h:246,rise:-46,inner:`<svg class="dg sp" width="170" height="246"><text x="85" y="20" text-anchor="middle" style="font-size:14px;font-weight:800;fill:var(--c-sperm)">${X.sperm}</text>
+        <g class="spg"><path class="tailhit part" data-act="part" data-p="tail" d="M0 60 L0 220" stroke="transparent" stroke-width="26" fill="none"/>
+        <path class="tail part" data-act="part" data-p="tail" fill="none" stroke="var(--c-sperm)" stroke-width="2.4" vector-effect="non-scaling-stroke"/>
+        <rect x="-3.5" y="42" width="7" height="20" rx="3" fill="var(--c-sperm)" opacity=".7"/>
+        <ellipse class="part" data-act="part" data-p="head" cx="0" cy="24" rx="13" ry="21" fill="#cdeef1" stroke="var(--pencil)" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+        <ellipse class="part" data-act="part" data-p="snuc" cx="0" cy="28" rx="8" ry="13" fill="#3a6f9a"/>
+        <path class="part" data-act="part" data-p="enz" d="M-12 17 C-12 -1 12 -1 12 17 C6 9 -6 9 -12 17 Z" fill="#f2b84b" stroke="var(--pencil)" stroke-width="1" vector-effect="non-scaling-stroke"/></g>
+        <g class="spbar"></g></svg>`})}
+   </div>
+   <div class="ctrls">${rng('sep',0,1,.01,s.sep,X.sep,false)}
+    <div class="row btns"><button class="tog" data-act="real">${X.real}</button><button class="cmp" data-act="cmp">${t('compare')}</button><button class="lis" data-act="listen">${t('listen')}</button></div>
+    ${rng('dist',1,20,1,s.dist,X.dist)}</div>
+   <div class="info"></div><div class="readout"></div>${footer(1)}</div>`; },
+ update(root){ const s=S(1), X=LX2[state.lang];
+  const st=$('.stack',root); st.style.setProperty('--sep',s.sep);
+  $$('.disc',root).forEach(d=>d.classList.toggle('sel',d.dataset.p===s.sel));
+  $$('.sp .part',root).forEach(p=>p.classList.toggle('sel',p.dataset.p===s.sel));
+  $('[data-act=real]',root).classList.toggle('on',s.real);
+  const sc=s.real?.4:1; root._sc=root._sc??sc; root._scT=sc;
+  $('.spbar',root).innerHTML=s.real?`<line x1="138" y1="24" x2="138" y2="112" stroke="var(--c-sperm)" stroke-width="2"/><line x1="132" y1="24" x2="144" y2="24" stroke="var(--c-sperm)" stroke-width="2"/><line x1="132" y1="112" x2="144" y2="112" stroke="var(--c-sperm)" stroke-width="2"/><text x="140" y="130" text-anchor="middle" style="fill:var(--c-sperm);font-weight:800">0.05 mm</text>`
+    :`<text x="85" y="238" text-anchor="middle">${X.mag}</text>`;
+  const rs=$$('.rng',root); if(Math.abs(+rs[0].value-s.sep)>.001) rs[0].value=s.sep; rs[1].value=s.dist; $$('output',root)[0].innerHTML=N(s.dist+' mm');
+  $$('.eggp',root).forEach(e=>e.classList.toggle('dim',s.side==='sperm')); $('.spg',root).classList.toggle('dim',s.side==='egg');
+  $('.info',root).innerHTML=infoHTML(PART[state.lang][s.sel]);
+  const ci=s.side==='egg'?1:2;
+  $('.readout',root).innerHTML=`<table class="tbl"><tr><th></th><th class="${ci===1?'lit':''} k-egg">${X.egg}</th><th class="${ci===2?'lit':''} k-sperm">${X.sperm}</th></tr>${X.rows.map(r=>`<tr><th>${r[0]}</th><td class="${ci===1?'lit':''}">${r[1]}</td><td class="${ci===2?'lit':''}">${r[2]}</td></tr>`).join('')}</table>
+   ${X.ratio}: ${EQ('0.1 ÷ 0.05 = 2')}<br>${X.time}:<br>${EQ(`${s.dist} mm ÷ 4 mm/min = ${fmt(s.dist/4)} min`)}`;
+  root._ph=root._ph||0;
+  addAnim(root,(now,dt)=>{ root._ph+=dt*.012; root._sc+=(root._scT-root._sc)*.12;
+    const g=$('.spg',root), tl=$('.tail',root); if(!g) return;
+    g.setAttribute('transform',`translate(85 ${s.real?24:22}) scale(${root._sc})`);
+    let d='M0 62'; for(let y=62;y<=212;y+=5){ const k=(y-62)/150; d+=` L${(10*Math.sin((y-62)/26-root._ph)*k).toFixed(1)} ${y}`; } tl.setAttribute('d',d); }); },
+ input(k,el,root){ const s=S(1);
+  if(k==='sep'){ s.sep=+el.value; const st=$('.stack',root); st.classList.add('drag'); st.style.setProperty('--sep',s.sep); clearTimeout(el._t); el._t=setTimeout(()=>st.classList.remove('drag'),120); voice(200+s.sep*260); }
+  if(k==='dist'){ s.dist=+el.value; this.update(root); voice(300+s.dist*14); } },
+ act(a,el,root){ const s=S(1);
+  if(a==='part'){ s.sel=el.dataset.p; this.update(root); blip(['zona','cyto','nuc'].includes(s.sel)?330:660,.15,'triangle',.12); return true; }
+  if(a==='real'){ s.real=!s.real; this.update(root); noise(.35,s.real?2400:600,s.real?600:2400,.08); return true; } },
+ cmp(root){ const s=S(1); s.side=s.side==='egg'?'sperm':'egg'; s.sel=s.side==='egg'?'cyto':'tail'; this.update(root); s.side==='egg'?blip(220,.4,'sine',.14):[0,1,2,3].forEach(i=>blip(880,.05,'square',.04,i*.09)); },
+ listen(root){ blip(196,.6,'sine',.1); [0,1,2,3,4,5].forEach(i=>blip(880,.04,'square',.035,.1+i*.12)); }
+};
+
+/* ============ LAB 3: fertilisation & implantation ============ */
+const JP3='M308 168 C318 152 318 142 314 128 C320 82 290 46 250 44 C210 42 170 70 140 92 C120 106 98 122 82 138 C70 150 58 160 52 168';
+const FT=.16, DIV=[.3,.4,.5,.62,.74];
+const LX3={ar:{title:'مختبر: من الإباضة إلى الانغراس',hint:'اسحب الزمن: تتحرك الخلية في قناة البيض، ويتضاعف عدد خلاياها أمامك.',
+  time:'الزمن',nofert:'بدون إخصاب',fert:'مع إخصاب',
+  st:['الإباضة: تتحرر البويضة من المبيض إلى قناة البيض','الإخصاب: يندمج حيوان منوي واحد مع البويضة فيتكوّن الزيجوت','انقسام الزيجوت وهو يتحرك في قناة البيض','كرة خلوية من 16 أو 32 خلية','تستمر الخلايا بالانقسام وتتحرك نزولاً: أصبح اسمها الجنين','الانغراس: ينغرس الجنين في بطانة الرحم الإسفنجية، وتبدأ المشيمة بالتكوّن'],
+  un:['الإباضة: تتحرر البويضة','البويضة في أعلى قناة البيض… ولا يوجد حيوان منوي',`تموت البويضة خلال ${N('12–24')} ساعة إن لم تُخصَّب`,'لا إخصاب: لا زيجوت ولا انغراس'],
+  cells:'عدد الخلايا',n:'عدد الانقسامات',stage:(k)=>`المرحلة ${N(k)} من ${N(6)}`,egg:'بويضة غير مخصّبة',lin:'بطانة الرحم'},
+ en:{title:'Lab: from ovulation to implantation',hint:'Drag time: the cell moves along the oviduct and its cell number doubles before your eyes.',
+  time:'Time',nofert:'No fertilisation',fert:'Fertilised',
+  st:['Ovulation: the egg is released from the ovary into the oviduct','Fertilisation: one sperm fuses with the egg, forming a zygote','The zygote divides as it moves down the oviduct','A ball of 16 or 32 cells','Cells keep dividing as they move down: now called an embryo','Implantation: the embryo sinks into the spongy uterus lining; the placenta starts to form'],
+  un:['Ovulation: the egg is released','The egg waits at the top of the oviduct… no sperm',`The egg dies within ${N('12–24')} hours if not fertilised`,'No fertilisation: no zygote, no implantation'],
+  cells:'Number of cells',n:'divisions',stage:(k)=>`Stage ${N(k)} of ${N(6)}`,egg:'unfertilised egg',lin:'uterus lining'}};
+function cluster(c,x,y,col){ if(c===1) return `<circle cx="${x}" cy="${y}" r="10.5" fill="none" stroke="var(--c-egg)" stroke-width="2.5" opacity=".6"/><circle cx="${x}" cy="${y}" r="8" fill="${col}"/>`;
+  const r=c<=2?5.2:c<=4?4.4:c<=8?3.6:c<=16?2.9:2.4; let s='', R=0;
+  for(let i=0;i<c;i++){ const a=i*2.39996, d=r*1.05*Math.sqrt(i+.5)*1.35; R=Math.max(R,d); s+=`<circle cx="${(x+d*Math.cos(a)).toFixed(1)}" cy="${(y+d*Math.sin(a)).toFixed(1)}" r="${r}" fill="${col}" stroke="#fff" stroke-width=".8"/>`; }
+  return `<circle cx="${x}" cy="${y}" r="${R+r+3}" fill="none" stroke="#f2b84b" stroke-width="2"/>`+s; }
+const LAB3={
+ html(){ const X=LX3[state.lang], s=S(2);
+  return `<div class="pin lab" data-lab="2">${labHead(X.title,X.hint)}
+   <div class="popzone" style="height:284px">${pop({x:14,y:0,w:372,h:268,rise:-50,inner:`<svg class="dg" width="372" height="268" viewBox="0 0 372 268">
+     <path d="M8 84 C40 60 124 60 152 86 L152 268 L8 268 Z" fill="#ecc3a4" stroke="var(--pencil)" stroke-width="1.5"/>
+     <path class="lin3" d="M38 112 C58 98 112 98 130 112 L130 268 L38 268 Z" fill="var(--paper)" stroke="#d77c6a" stroke-width="12"/>
+     <text x="84" y="250" text-anchor="middle">${X.lin}</text>
+     <path d="M140 92 C170 70 210 40 250 44 C290 48 320 82 314 128" fill="none" stroke="#e2ae94" stroke-width="16" stroke-linecap="round"/>
+     <path d="M140 92 C170 70 210 40 250 44 C290 48 320 82 314 128" fill="none" stroke="var(--pencil)" stroke-width="1" stroke-dasharray="3 5"/>
+     <path class="ol" d="M314 128 l-12 6 M314 128 l-6 12 M314 128 l4 13 M314 128 l12 8"/>
+     <ellipse cx="324" cy="196" rx="30" ry="22" fill="var(--tint)" stroke="var(--pencil)" stroke-width="1.5"/>
+     <path class="jp" d="${JP3}" fill="none" stroke="none"/><g class="marks"></g><g class="sperms"></g><g class="cellg"></g></svg><svg class="penlayer"></svg>`})}</div>
+   <div class="ctrls">${rng('t3',0,1000,1,Math.round(s.t*1000),X.time,false)}
+    <div class="row btns"><button class="tog" data-act="nofert">${X.nofert}</button><button class="cmp" data-act="cmp">${t('compare')}</button><button class="lis" data-act="listen">${t('listen')}</button></div>
+    ${cmpKeys(X.fert,X.nofert,'var(--c-zyg)','var(--c-egg)')}</div>
+   <div class="info"></div><div class="readout"></div>${footer(2)}</div>`; },
+ update(root){ const s=S(2), X=LX3[state.lang], svg=$('.dg',root), jp=$('.jp',svg);
+  if(!root._len){ root._len=jp.getTotalLength(); setPen($('.penlayer',root),[{d:JP3,c:'var(--c-zyg)'}]);
+    $('.marks',svg).innerHTML=[.03,FT,.42,.68,.84,.97].map((v,i)=>{const p=jp.getPointAtLength(v*root._len);return `<g><circle cx="${p.x+14}" cy="${p.y-14}" r="8" fill="var(--paper)" stroke="var(--pencil)" stroke-width="1.2"/><text x="${p.x+14}" y="${p.y-10.5}" text-anchor="middle" style="font-size:10px;font-weight:800;fill:var(--ink);font-family:var(--fe)">${i+1}</text></g>`}).join(''); }
+  const L=root._len, tt=s.fert?s.t:Math.min(s.t,.3), p=jp.getPointAtLength(tt*L);
+  let n=0,c=1,stage,txt;
+  if(s.fert){ n=s.t>=FT?DIV.filter(d=>s.t>=d).length:0; c=2**n;
+    stage=s.t<.08?1:s.t<FT+.08?2:s.t<.62?3:s.t<.8?4:s.t<.92?5:6; txt=X.st[stage-1]; }
+  else { stage=s.t<.08?0:s.t<.2?1:s.t<.33?2:3; txt=X.un[stage]; }
+  const fade=s.fert?1:1-sstep(.2,.32,s.t);
+  const col=s.fert&&s.t>=FT?'var(--c-zyg)':'var(--c-egg)';
+  let ix=p.x, iy=p.y; if(s.fert&&s.t>=.92){ const k=sstep(.92,1,s.t); ix=p.x-6*k; iy=p.y+2*k; }
+  $('.cellg',svg).innerHTML=`<g opacity="${fade}" filter="url(#glow)">${cluster(c,ix,iy,col)}</g>`;
+  let sp='';
+  if(s.fert&&s.t>.05&&s.t<.24){ for(let i=0;i<5;i++){ if(s.t>=FT&&i===0) continue; const v=Math.min(1,tt+.035+i*.022+(s.t>=FT?.01:0)), q=jp.getPointAtLength(v*L), q2=jp.getPointAtLength(Math.max(0,v*L-5));
+     const a=Math.atan2(q2.y-q.y,q2.x-q.x)*180/Math.PI; sp+=`<g transform="translate(${q.x+(i%2?4:-4)} ${q.y+(i%3-1)*5}) rotate(${a})"><ellipse rx="3.4" ry="2.3" fill="var(--c-sperm)"/><path d="M-3 0 q-4 -3 -8 0 t-8 0" stroke="var(--c-sperm)" stroke-width="1.3" fill="none"/></g>`; } }
+  $('.sperms',svg).innerHTML=sp;
+  $('.lin3',svg).setAttribute('stroke',s.fert&&s.t>=.92?'#c74f3a':'#d77c6a');
+  const r=$('.rng',root); if(Math.abs(+r.value/1000-s.t)>.002) r.value=Math.round(s.t*1000);
+  $('[data-act=nofert]',root).classList.toggle('on',!s.fert);
+  $('.key.a',root).classList.toggle('lit',s.fert); $('.key.b',root).classList.toggle('lit',!s.fert);
+  $('.info',root).innerHTML=`<b>${s.fert?X.stage(stage):X.egg}</b><div>${txt}</div>`;
+  $('.readout',root).innerHTML=s.fert&&s.t>=FT?`${X.cells} = ${EQ(`2<sup>${n}</sup> = ${c}`)} (${X.n}: ${N(n)})`:`${X.cells} = ${EQ('1')}${s.fert?'':' · <span class="bad">'+X.un[2]+'</span>'}`;
+  if(root._n!==undefined&&n>root._n) blip(262*Math.pow(2,n/3),.18,'triangle',.14);
+  if(root._st!==undefined&&s.fert&&stage===2&&root._st<2) chord([392,494,587,784],.5,.08);
+  root._n=n; root._st=stage; },
+ input(k,el,root){ const s=S(2); s.t=+el.value/1000; this.update(root); voice(180+s.t*260); },
+ act(a,el,root){ if(a==='nofert'){ const s=S(2); s.fert=!s.fert; stopCompare(); this.update(root); s.fert?chord([392,494,587],.3):blip(150,.35,'sawtooth',.05); return true; } },
+ cmp(root){ const s=S(2); s.fert=!s.fert; this.update(root); s.fert?chord([392,494,587],.3):blip(165,.3,'sine',.1); },
+ listen(root){ const s=S(2); s.t=s.t>=.99?0:Math.min(1,s.t+.06); this.update(root); voice(180+s.t*260); }
+};
+
+/* ============ LAB 4: placenta ============ */
+const LX4={ar:{title:'مختبر: تبادل المواد في المشيمة',hint:'اختر المواد وشاهدها تنتشر عبر الحاجز. خلايا الدم لا تعبر أبداً.',
+  rate:'تدفّق الدم',m2f:'من الأم إلى الجنين',f2m:'من الجنين إلى الأم',mom:'دم الأم',fet:'شعيرة دموية للجنين',
+  subs:{o2:'أكسجين',food:'غذاء',co2:'CO₂',urea:'يوريا',tox:'سموم'},
+  toF:'وصل إلى الجنين',toM:'عاد إلى الأم',blk:'سموم أوقفها الحاجز',
+  cord:`الحبل السري: شريانان + وريد = ${N('3')} أوعية`,size:`المشيمة عند الولادة: قطر ${N('12 cm')} وسمك ${N('3 cm')} تقريباً`,
+  amn:'الكيس الأمنيوني',shock:'صدمة!',amnTxt:'السائل الأمنيوني يمتص الصدمة فيحمي الجنين.'},
+ en:{title:'Lab: exchange at the placenta',hint:'Choose substances and watch them diffuse across the barrier. Blood cells never cross.',
+  rate:'Blood flow',m2f:'Mother → fetus',f2m:'Fetus → mother',mom:'mother’s blood',fet:'fetal capillary',
+  subs:{o2:'Oxygen',food:'Food',co2:'CO₂',urea:'Urea',tox:'Toxins'},
+  toF:'reached fetus',toM:'returned to mother',blk:'toxins blocked',
+  cord:`Umbilical cord: 2 arteries + 1 vein = ${N('3')} vessels`,size:`Placenta at birth: about ${N('12 cm')} across, ${N('3 cm')} thick`,
+  amn:'Amniotic sac',shock:'Knock!',amnTxt:'Amniotic fluid absorbs the knock and protects the fetus.'}};
+const SUBC={o2:'var(--c-ox)',food:'var(--c-food)',co2:'var(--c-co2)',urea:'var(--c-urea)',tox:'var(--c-tox)'};
+const VIL='M110 236 L110 120 C110 52 262 52 262 120 L262 236 Z', CAP='M146 236 L146 128 C146 94 226 94 226 128 L226 236';
+function inVillus(x,y){ if(x<110||x>262||y>236) return false; if(y>=120) return true; const dx=(x-186)/76, dy=(y-120)/62; return dx*dx+dy*dy<=1; }
+function wallPt(x,y){ const a=Math.atan2(y-120,x-186); if(y<120) return {x:186+76*Math.cos(a),y:120+62*Math.sin(a)}; return {x:x<186?110:262,y}; }
+const LAB4={
+ html(){ const X=LX4[state.lang], s=S(3);
+  return `<div class="pin lab" data-lab="3">${labHead(X.title,X.hint)}
+   <div class="popzone" style="height:262px">${pop({x:14,y:0,w:372,h:246,rise:-48,inner:`<svg class="dg" width="372" height="246" viewBox="0 0 372 246">
+     <rect x="6" y="6" width="360" height="234" rx="8" fill="rgba(210,59,47,.13)"/>
+     <text x="20" y="26" style="fill:var(--c-ox);font-weight:800">${X.mom}</text>
+     <g class="rbcM"></g>
+     <path d="${VIL}" fill="#f7e6dc" stroke="var(--pencil)" stroke-width="3"/>
+     <path class="capB" d="${CAP}" fill="none" stroke="url(#capg)" stroke-width="20" stroke-linecap="round"/>
+     <defs><linearGradient id="capg" x1="0" x2="1"><stop offset="0" stop-color="#7f9ae8"/><stop offset="1" stop-color="#e88a7f"/></linearGradient></defs>
+     <path class="capP" d="${CAP}" fill="none" stroke="none"/><g class="rbcF"></g>
+     <text x="186" y="230" text-anchor="middle" style="font-size:10.5px">${X.fet}</text>
+     <g class="parts"></g></svg><svg class="penlayer"></svg>`})}</div>
+   <div class="ctrls"><div class="row btns">${Object.keys(X.subs).map(k=>`<button class="chip" data-act="sub" data-k="${k}" style="--cc:${SUBC[k]}">${X.subs[k]}</button>`).join('')}</div>
+    ${rng('rate',0,1,.01,s.rate,X.rate,false)}
+    <div class="row btns"><button class="cmp" data-act="cmp">${t('compare')}</button><button class="lis" data-act="listen">${t('listen')}</button><button data-act="shock">${X.shock}</button></div>
+    ${cmpKeys(X.m2f,X.f2m,'var(--c-ox)','var(--c-wbc)')}</div>
+   <div class="info" style="display:flex;gap:10px;align-items:center"><svg class="amn" width="120" height="86" viewBox="0 0 120 86"><g class="wall"><ellipse cx="60" cy="43" rx="56" ry="40" fill="#ecc3a4" stroke="var(--pencil)" stroke-width="1.4"/><ellipse cx="60" cy="43" rx="44" ry="30" fill="#cfe8f5" stroke="var(--pencil)" stroke-width="1"/></g>
+     <g class="fetus"><circle cx="50" cy="36" r="10" fill="#f3c9b3" stroke="var(--pencil)"/><path d="M58 42 C78 40 82 60 64 64 C52 66 46 56 52 48" fill="#f3c9b3" stroke="var(--pencil)"/></g></svg>
+     <div><b>${X.amn}</b><div>${X.amnTxt}</div></div></div>
+   <div class="readout"></div>${footer(3)}</div>`; },
+ update(root){ const s=S(3), X=LX4[state.lang];
+  $$('[data-act=sub]',root).forEach(b=>b.classList.toggle('on',!!s.subs[b.dataset.k]));
+  const r=$('.rng',root); if(Math.abs(+r.value-s.rate)>.001) r.value=s.rate;
+  $('.key.a',root).classList.toggle('lit',s.dir==='m2f'); $('.key.b',root).classList.toggle('lit',s.dir==='f2m');
+  this.read(root);
+  if(!root._P){ root._P=[]; root._sp=0; root._shock=0; const R=rnd(7); root._M=Array.from({length:16},()=>({x:20+R()*330,y:30+R()*200,vx:(R()-.5)*.04,vy:(R()-.5)*.04})).filter(b=>!inVillus(b.x,b.y)); root._F=Array.from({length:6},(_,i)=>i/6);
+    root._cap=$('.capP',root); root._capL=root._cap.getTotalLength();
+    const sg=[]; setPen($('.penlayer',root),[{d:'M70 60 C100 70 120 80 150 110',c:'var(--c-ox)'},{d:'M222 130 C250 100 280 80 310 70',c:'var(--c-wbc)'}]); }
+  addAnim(root,(now,dt)=>this.tick(root,dt)); },
+ read(root){ const s=S(3), X=LX4[state.lang];
+  $('.readout',root).innerHTML=`<span class="k-ox">${X.toF}: ${N(s.cnt[0])}</span> · <span class="k-wbc">${X.toM}: ${N(s.cnt[1])}</span> · ${X.blk}: ${N(s.cnt[2])}<br>${X.cord}<br>${X.size}`; },
+ tick(root,dt){ const s=S(3), P=root._P, cap=root._cap, L=root._capL;
+  if(dt>0){ root._sp+=dt; const iv=lerp(900,140,s.rate);
+   if(root._sp>iv){ root._sp=0; const types=Object.keys(s.subs).filter(k=>s.subs[k]&&(!s.dir||(s.dir==='m2f'?['o2','food','tox'].includes(k):['co2','urea'].includes(k))));
+    if(types.length){ const k=types[Math.floor(Math.random()*types.length)], a=-Math.PI*(.1+Math.random()*.8), out={x:186+130*Math.cos(a)*(1+Math.random()*.15),y:Math.max(14,120+105*Math.sin(a))};
+     const inn=cap.getPointAtLength(L*(.25+Math.random()*.5));
+     if(k==='tox'){ const w=wallPt(out.x,out.y); P.push({k,a:out,b:w,p:0,back:false}); }
+     else if(k==='o2'||k==='food') P.push({k,a:out,b:inn,p:0}); else P.push({k,a:inn,b:out,p:0}); } }
+   for(const q of P){ q.p+=dt*.0006*(.6+s.rate);
+    if(q.k==='tox'&&q.p>=1&&!q.back){ q.back=true; q.p=0; const t0=q.a; q.a=q.b; q.b=t0; s.cnt[2]++; this.read(root); blip(140,.08,'square',.03); }
+    else if(q.p>=1&&!q.done){ q.done=true; if(q.k==='o2'||q.k==='food'){ s.cnt[0]++; } else if(q.k!=='tox'){ s.cnt[1]++; } this.read(root); } }
+   root._P=P.filter(q=>!(q.done||(q.k==='tox'&&q.back&&q.p>=1)));
+   root._M.forEach(b=>{ b.x+=b.vx*dt; b.y+=b.vy*dt; if(b.x<14||b.x>358) b.vx*=-1; if(b.y<14||b.y>232) b.vy*=-1; if(inVillus(b.x,b.y)){ b.vx*=-1; b.vy*=-1; b.x+=b.vx*dt*2; b.y+=b.vy*dt*2; } });
+   root._F=root._F.map(v=>(v+dt*.00012*(.5+s.rate))%1);
+   root._shock=Math.max(0,root._shock-dt); }
+  const sh=root._shock/700, w=$('.wall',root), f=$('.fetus',root);
+  if(w){ const o=Math.sin(root._shock*.06)*9*sh; w.setAttribute('transform',`translate(${o} 0)`); f.setAttribute('transform',`translate(${o*.18} 0)`); }
+  const shp=q=>{ const x=lerp(q.a.x,q.b.x,q.p), y=lerp(q.a.y,q.b.y,q.p);
+    return q.k==='o2'?`<circle cx="${x}" cy="${y}" r="3.6" fill="var(--c-ox)"/>`:q.k==='food'?`<rect x="${x-3.2}" y="${y-3.2}" width="6.4" height="6.4" fill="var(--c-food)"/>`
+     :q.k==='co2'?`<circle cx="${x}" cy="${y}" r="3.6" fill="var(--c-co2)"/>`:q.k==='urea'?`<path d="M${x} ${y-4} l4 7 h-8z" fill="var(--c-urea)"/>`:`<path d="M${x-4} ${y-4} l8 8 M${x+4} ${y-4} l-8 8" stroke="var(--c-tox)" stroke-width="2.4"/>`; };
+  $('.parts',root).innerHTML=root._P.map(shp).join('');
+  $('.rbcM',root).innerHTML=root._M.map(b=>`<ellipse cx="${b.x}" cy="${b.y}" rx="6" ry="4.2" fill="#d9584b" opacity=".75"/>`).join('');
+  $('.rbcF',root).innerHTML=root._F.map(v=>{const p=cap.getPointAtLength(v*L);return `<ellipse cx="${p.x}" cy="${p.y}" rx="4.6" ry="3.2" fill="${v<.5?'#4c6fd8':'#d9584b'}" opacity=".9"/>`}).join(''); },
+ input(k,el,root){ const s=S(3); s.rate=+el.value; voice(160+s.rate*300); },
+ act(a,el,root){ const s=S(3);
+  if(a==='sub'){ const k=el.dataset.k; s.subs[k]=s.subs[k]?0:1; this.update(root); blip(s.subs[k]?600:300,.1,'triangle',.1); return true; }
+  if(a==='shock'){ root._shock=700; noise(.25,200,120,.18); blip(80,.3,'sine',.2); return true; } },
+ cmp(root){ const s=S(3); s.dir=s.dir==='m2f'?'f2m':'m2f'; this.update(root); s.dir==='m2f'?chord([330,415,494],.4):chord([494,415,330],.4); },
+ stopCmp(root){ S(3).dir=null; },
+ listen(root){ voice(160+S(3).rate*300); }
+};
+
+/* ============ LAB 5: menstrual cycle ============ */
+function th5(t,fert){ if(t<.35) return lerp(.18,.6,sstep(0,.35,t)); if(t<.8) return lerp(.6,.92,sstep(.35,.8,t)); return fert?.94:lerp(.92,.14,sstep(.8,1,t)); }
+const gx=t=>26+t*322, gy=v=>98-v*72;
+const LX5={ar:{title:'مختبر: دورة الطمث',hint:'اسحب على مدار الدورة: يرتفع سُمك البطانة ويُرسم المنحنى، وتتحرر البويضة.',
+  cyc:'مدار الدورة',fert:'أُخصبت البويضة',nf:'لم تُخصَّب',fz:'أُخصبت',thick:'سُمك بطانة الرحم',men:`الطمث (≈${N('5')} أيام)`,menS:'الطمث (≈5 أيام)',ov:'الإباضة',
+  tt:['تطوّر بويضة جديدة','الإباضة','بطانة سميكة','الطمث'],
+  st:['تتطوّر بويضة جديدة داخل المبيض، ويُعاد تكوين بطانة الرحم','الإباضة: تتحرر البويضة من المبيض إلى قناة البيض','تزيد بطانة الرحم السميكة من تدفّق الدم استعداداً لاستقبال الجنين','الطمث: لم تُخصَّب البويضة، فتتفسّخ البطانة وتتلف وتُفقد تدريجياً عبر المهبل'],
+  stF:'انغرس الجنين: تبقى البطانة سميكة لتغذيته، فلا يحدث طمث',
+  ovary:'المبيض',uterus:'بطانة الرحم',lv:['تُعاد تكوينها','تزداد سماكة','سميكة إسفنجية مليئة بالأوعية الدموية','تتفسّخ وتُفقد']},
+ en:{title:'Lab: the menstrual cycle',hint:'Drag around the cycle: the lining thickens, the curve draws itself, and the egg is released.',
+  cyc:'Through the cycle',fert:'Egg fertilised',nf:'Not fertilised',fz:'Fertilised',thick:'uterus lining thickness',men:`menstruation (≈${N('5')} days)`,menS:'menstruation (≈5 days)',ov:'ovulation',
+  tt:['A new egg develops','Ovulation','Thick lining','Menstruation'],
+  st:['A new egg develops in the ovary and the uterus lining is rebuilt','Ovulation: the egg is released from the ovary into the oviduct','The thick lining increases its blood flow, ready to receive an embryo','Menstruation: the egg was not fertilised, so the lining breaks down and is slowly lost through the vagina'],
+  stF:'An embryo has implanted: the lining stays thick to nourish it, so no menstruation',
+  ovary:'Ovary',uterus:'Uterus lining',lv:['being rebuilt','thickening','thick, spongy, full of blood vessels','breaking down and lost']}};
+const LAB5={
+ html(){ const X=LX5[state.lang], s=S(4);
+  return `<div class="pin lab" data-lab="4">${labHead(X.title,X.hint)}
+   <div class="popzone" style="height:284px">${pop({x:14,y:0,w:372,h:268,rise:-50,inner:`<svg class="dg" width="372" height="268" viewBox="0 0 372 268">
+     <line x1="26" y1="100" x2="350" y2="100" stroke="var(--pencil)" stroke-width="1.4"/><line x1="26" y1="20" x2="26" y2="100" stroke="var(--pencil)" stroke-width="1.4"/>
+     <text x="30" y="16" style="font-weight:700">${X.thick} ↑</text>
+     <rect x="${gx(.8)}" y="20" width="${gx(1)-gx(.8)}" height="80" fill="rgba(195,90,53,.10)" class="menband"/>
+     <text x="${gx(.9)}" y="114" text-anchor="middle" class="mentxt" style="fill:var(--c-lin);font-weight:700">${X.menS}</text>
+     <line x1="${gx(.385)}" y1="20" x2="${gx(.385)}" y2="100" stroke="var(--c-egg)" stroke-dasharray="3 3"/><text x="${gx(.385)}" y="114" text-anchor="middle" style="fill:var(--c-egg);font-weight:700">${X.ov}</text>
+     <g class="mark"></g>
+     <path d="M144 132 C144 116 228 116 228 132 C228 170 208 194 198 210 L174 210 C164 194 144 170 144 132 Z" fill="#ecc3a4" stroke="var(--pencil)" stroke-width="1.5"/>
+     <path class="lin5" d="M158 136 C172 128 200 128 214 136 L192 194 L180 194 Z" fill="var(--paper)" stroke="var(--c-lin)" stroke-linejoin="round"/>
+     <path class="ves" d="M158 136 C172 128 200 128 214 136 L192 194 L180 194 Z" fill="none" stroke="#b5302a" stroke-width="1.6" stroke-dasharray="2 5"/>
+     <path d="M178 210 L174 260 M194 210 L198 260" stroke="var(--pencil)" stroke-width="1.5" fill="none"/>
+     <path d="M226 134 C246 118 270 120 282 132" stroke="#e2ae94" stroke-width="9" fill="none" stroke-linecap="round"/>
+     <ellipse cx="300" cy="150" rx="28" ry="18" fill="var(--tint)" stroke="var(--pencil)" stroke-width="1.5"/>
+     <text x="300" y="186" text-anchor="middle">${X.ovary}</text>
+     <g class="ovg"></g><g class="flakes"></g></svg><svg class="penlayer"></svg>`})}</div>
+   <div class="ctrls">${rng('t5',0,1000,1,Math.round(s.t*1000),X.cyc,false)}
+    <div class="row btns"><button class="tog" data-act="fert5">${X.fert}</button><button class="cmp" data-act="cmp">${t('compare')}</button><button class="lis" data-act="listen">${t('listen')}</button></div>
+    ${cmpKeys(X.nf,X.fz,'var(--c-lin)','var(--c-zyg)')}</div>
+   <div class="info"></div><div class="readout"></div>${footer(4)}</div>`; },
+ curve(f){ let d=''; for(let i=0;i<=80;i++){ const t=i/80; d+=(i?' L':'M')+gx(t).toFixed(1)+' '+gy(th5(t,f)).toFixed(1); } return d; },
+ update(root){ const s=S(4), X=LX5[state.lang], svg=$('.dg',root), v=th5(s.t,s.fert);
+  if(root._f!==s.fert){ root._f=s.fert; setPen($('.penlayer',root),[{d:this.curve(s.fert),c:s.fert?'var(--c-zyg)':'var(--c-lin)'}]); }
+  $('.mark',svg).innerHTML=`<line x1="${gx(s.t)}" y1="20" x2="${gx(s.t)}" y2="100" stroke="var(--pencil)" stroke-width="1.5"/><circle cx="${gx(s.t)}" cy="${gy(v)}" r="6" fill="${s.fert&&s.t>.8?'var(--c-zyg)':'var(--c-lin)'}" stroke="#fff" stroke-width="2"/>`;
+  $('.menband',svg).style.opacity=s.fert?0:1; $('.mentxt',svg).style.opacity=s.fert?0:1;
+  $('.lin5',svg).setAttribute('stroke-width',(3+v*16).toFixed(1));
+  $('.ves',svg).style.opacity=v>.55?(s.t>.8&&!s.fert?.4:1):0;
+  let ov='';
+  if(s.t<.35){ const r=3+9*sstep(0,.35,s.t); ov=`<circle cx="292" cy="148" r="${r}" fill="none" stroke="var(--c-egg)" stroke-width="2"/><circle cx="292" cy="148" r="${Math.max(2,r*.35)}" fill="var(--c-egg)"/>`; }
+  else { const k=sstep(.35,.55,s.t), x=lerp(286,236,k), y=lerp(140,132,k);
+    if(s.fert&&s.t>.8){ ov=`<g filter="url(#glow)">${cluster(16,186,164,'var(--c-zyg)')}</g>`; }
+    else { const op=s.fert?1:1-sstep(.62,.78,s.t); ov=`<circle cx="${x}" cy="${y}" r="5.5" fill="var(--c-egg)" opacity="${op}" filter="url(#glow)"/>`; } }
+  $('.ovg',svg).innerHTML=ov;
+  const st=s.t<.35?0:s.t<.42?1:s.t<.8?2:3;
+  $('.info',root).innerHTML=`<b>${st===3&&s.fert?X.fz:X.tt[st]}</b><div>${st===3&&s.fert?X.stF:X.st[st]}</div>`;
+  const lvl=st===0?0:st===1?1:st===2?2:(s.fert?2:3);
+  $('.readout',root).innerHTML=`${X.uterus}: <b class="k-lin">${X.lv[lvl]}</b>`;
+  const r=$('.rng',root); if(Math.abs(+r.value/1000-s.t)>.002) r.value=Math.round(s.t*1000);
+  $('[data-act=fert5]',root).classList.toggle('on',s.fert); $('.key.a',root).classList.toggle('lit',!s.fert); $('.key.b',root).classList.toggle('lit',s.fert);
+  $('[data-act=listen]',root).classList.toggle('on',!!s.play);
+  if(root._st!==undefined&&st!==root._st){ st===1?chord([523,659,784],.4,.08):st===3&&!s.fert?blip(196,.4,'sine',.1):0; } root._st=st;
+  root._ph=root._ph||0;
+  addAnim(root,(now,dt)=>{ const s=S(4); if(s.play&&dt>0){ s.t+=dt*.00008; if(s.t>1) s.t=0; this.update(root); voice(180+th5(s.t,s.fert)*320); }
+    root._ph+=dt*.001; const fl=$('.flakes',root); if(!fl) return;
+    if(s.t>.8&&!s.fert){ let h=''; for(let i=0;i<7;i++){ const k=(root._ph*.8+i/7)%1; h+=`<rect x="${180+((i*37)%14)}" y="${196+k*58}" width="3.5" height="5" rx="1" fill="#b5302a" opacity="${1-k}"/>`; } fl.innerHTML=h; } else fl.innerHTML=''; }); },
+ input(k,el,root){ const s=S(4); s.t=+el.value/1000; s.play=false; this.update(root); voice(180+th5(s.t,s.fert)*320); },
+ act(a,el,root){ if(a==='fert5'){ const s=S(4); s.fert=!s.fert; stopCompare(); this.update(root); s.fert?chord([392,494,587],.35):blip(180,.3,'sine',.1); return true; } },
+ cmp(root){ const s=S(4); s.fert=!s.fert; if(s.t<.82) s.t=.92; this.update(root); s.fert?chord([392,494,587],.35):blip(180,.3,'sine',.1); },
+ listenToggle(root,on){ S(4).play=on; this.update(root); }
+};
+
+/* ============ LAB 6: HIV ============ */
+function lvl6(t,med){ return med?1-.32*sstep(.15,1,t):1-.88*sstep(.12,.88,t); }
+const WBC=(()=>{const R=rnd(21),a=[];for(let i=0;i<10;i++)a.push({x:30+(i%5)*72+R()*18,y:30+Math.floor(i/5)*62+R()*16});return a;})();
+const LX6={ar:{title:'مختبر: HIV يهاجم المناعة',hint:'اسحب الزمن بعد الإصابة وشاهد خلايا الدم البيضاء، ثم جرّب العلاج.',
+  time:'الزمن بعد الإصابة',med:'أدوية مضادة للفيروسات الارتجاعية',noM:'دون علاج',withM:'مع العلاج',wbc:'خلايا الدم البيضاء',
+  tt:['الإصابة','مرحلة بلا أعراض','انخفاض المناعة','الإيدز'],
+  st:['الإصابة بفيروس HIV','سنوات دون أعراض واضحة… والفيروس يدمّر خلايا الدم البيضاء ببطء','انخفاض كبير في خلايا الدم البيضاء','الإيدز: لا تقدر المناعة على محاربة مسببات الأمراض، فتظهر أمراض أخرى مثل الالتهاب الرئوي'],
+  stM:'الأدوية تبطئ الانخفاض وتزيد العمر المتوقع، لكنها لا تشفي',
+  model:(a)=>`خلايا الدم البيضاء في النموذج: ${N(a+' / 10')}`,sorterT:'ينقل HIV أم لا؟ انقر البطاقة لتكشف',yes:'ينقل',no:'لا ينقل',
+  cards:[['مشاركة إبرة حقن غير معقّمة',1,'اتصال مباشر بالدم'],['نقل دم غير مفحوص',1,'لذلك يُفحص الدم اليوم'],['من الأم المصابة إلى جنينها',1,'أثناء الحمل أو الولادة أو الرضاعة'],['المصافحة',0,'الفيروس لا يعيش خارج الجسم'],['الجلوس بجانب المصاب في الصف',0,'لا اتصال بسوائل الجسم'],['الاتصال الجنسي',1,'ملامسة سوائل الجسم']]},
+ en:{title:'Lab: HIV vs immunity',hint:'Drag time after infection and watch the white blood cells, then try treatment.',
+  time:'Time after infection',med:'Antiretrovirals',noM:'No treatment',withM:'With treatment',wbc:'white blood cells',
+  tt:['Infection','No symptoms','Immunity falls','AIDS'],
+  st:['Infection with HIV','Years with no clear symptoms… the virus slowly destroys white blood cells','White blood cells fall a lot','AIDS: immunity can’t fight pathogens, so diseases like pneumonia appear'],
+  stM:'Drugs slow the fall and increase life expectancy, but do not cure',
+  model:(a)=>`White blood cells in the model: ${N(a+' / 10')}`,sorterT:'Spreads HIV or not? Tap a card to reveal',yes:'Spreads',no:'Does not spread',
+  cards:[['Sharing an unsterilised needle',1,'direct contact with blood'],['Untested blood transfusion',1,'so blood is tested today'],['Infected mother to baby',1,'pregnancy, birth or breastfeeding'],['Shaking hands',0,'virus can’t live outside the body'],['Sitting beside them in class',0,'no contact with body fluids'],['Sexual contact',1,'contact with body fluids']]}};
+const LAB6={
+ html(){ const X=LX6[state.lang], s=S(5);
+  return `<div class="pin lab" data-lab="5">${labHead(X.title,X.hint)}
+   <div class="popzone" style="height:238px">${pop({x:14,y:0,w:372,h:222,rise:-48,inner:`<svg class="dg" width="372" height="222" viewBox="0 0 372 222">
+     <rect x="6" y="6" width="360" height="130" rx="8" fill="rgba(210,59,47,.08)"/><g class="field"></g>
+     <line x1="26" y1="212" x2="352" y2="212" stroke="var(--pencil)" stroke-width="1.3"/><line x1="26" y1="150" x2="26" y2="212" stroke="var(--pencil)" stroke-width="1.3"/>
+     <text x="30" y="148" style="font-weight:700;fill:var(--c-wbc)">${X.wbc} ↑</text><g class="mark6"></g></svg><svg class="penlayer"></svg>`})}</div>
+   <div class="ctrls">${rng('t6',0,1000,1,Math.round(s.t*1000),X.time,false)}
+    <div class="row btns"><button class="tog" data-act="med">${X.med}</button><button class="cmp" data-act="cmp">${t('compare')}</button><button class="lis" data-act="listen">${t('listen')}</button></div>
+    ${cmpKeys(X.noM,X.withM,'var(--c-hiv)','var(--c-wbc)')}</div>
+   <div class="info"></div>
+   <div class="hint" style="font-weight:700">${X.sorterT}</div><div class="sorter noswipe"></div>
+   <div class="readout"></div>${footer(5)}</div>`; },
+ curve(med){ let d=''; for(let i=0;i<=60;i++){ const t=i/60; d+=(i?' L':'M')+(26+t*326).toFixed(1)+' '+(208-lvl6(t,med)*54).toFixed(1); } return d; },
+ update(root){ const s=S(5), X=LX6[state.lang], svg=$('.dg',root), v=lvl6(s.t,s.med), alive=Math.round(v*10);
+  if(root._m!==s.med){ root._m=s.med; setPen($('.penlayer',root),[{d:this.curve(s.med),c:s.med?'var(--c-wbc)':'var(--c-hiv)'}]); }
+  const R=rnd(5); let h='';
+  WBC.forEach((w,i)=>{ const ok=i<alive; h+=ok?`<g><circle cx="${w.x}" cy="${w.y}" r="17" fill="#e6ecf7" stroke="var(--c-wbc)" stroke-width="2"/><path d="M${w.x-7} ${w.y-2} q4 -8 8 -2 q4 6 8 -1 q2 6 -4 9 q-8 4 -12 -6z" fill="var(--c-wbc)" opacity=".7"/></g>`
+    :`<g opacity=".35"><circle cx="${w.x}" cy="${w.y}" r="17" fill="none" stroke="var(--c-wbc)" stroke-width="1.5" stroke-dasharray="4 4"/></g>`; });
+  const nv=Math.round(3+(s.med?6:22)*sstep(0,.9,s.t));
+  for(let i=0;i<nv;i++){ const w=WBC[i%10], a=R()*6.28, d=20+R()*8, x=w.x+d*Math.cos(a), y=w.y+d*Math.sin(a);
+    h+=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><circle r="4" fill="var(--c-hiv)"/><path d="M-6 0h12M0 -6v12M-4 -4l8 8M4 -4l-8 8" stroke="var(--c-hiv)" stroke-width="1.2"/></g>`; }
+  const nb=Math.max(0,Math.round((.5-v)*22));
+  for(let i=0;i<nb;i++){ const x=20+R()*330, y=16+R()*112, a=R()*180; h+=`<rect x="${x}" y="${y}" width="16" height="6" rx="3" fill="#6a9b3c" transform="rotate(${a} ${x+8} ${y+3})"/>`; }
+  $('.field',svg).innerHTML=h;
+  $('.mark6',svg).innerHTML=`<line x1="${26+s.t*326}" y1="150" x2="${26+s.t*326}" y2="212" stroke="var(--pencil)"/><circle cx="${26+s.t*326}" cy="${208-v*54}" r="6" fill="${s.med?'var(--c-wbc)':'var(--c-hiv)'}" stroke="#fff" stroke-width="2"/>`;
+  const st=s.t<.1?0:s.t<.55?1:v>.35?2:3;
+  $('.info',root).innerHTML=`<b>${X.tt[st]}</b><div>${s.med&&st>0?`<span class="k-wbc">${X.stM}</span>`:X.st[st]}</div>`;
+  $('.sorter',root).innerHTML=X.cards.map((c,i)=>{ const r=s.rev[i]; return `<button class="card ${r?(c[1]?'yes':'no'):''}" data-act="card" data-i="${i}">${c[0]}${r?`<small>${c[1]?X.yes:X.no}</small>`:''}</button>`; }).join('');
+  const lc=s.last!=null&&s.rev[s.last]?X.cards[s.last]:null; $('.readout',root).innerHTML=X.model(alive)+(lc?`<br><b class="${lc[1]?'bad':'ok'}">${lc[0]}:</b> ${lc[1]?X.yes:X.no} (${lc[2]})`:'');
+  const r=$('.rng',root); if(Math.abs(+r.value/1000-s.t)>.002) r.value=Math.round(s.t*1000);
+  $('[data-act=med]',root).classList.toggle('on',s.med); $('.key.a',root).classList.toggle('lit',!s.med); $('.key.b',root).classList.toggle('lit',s.med);
+  if(root._a!==undefined&&alive<root._a) blip(220+alive*30,.12,'square',.04); root._a=alive; },
+ input(k,el,root){ const s=S(5); s.t=+el.value/1000; this.update(root); voice(140+lvl6(s.t,s.med)*320); },
+ act(a,el,root){ const s=S(5);
+  if(a==='med'){ s.med=!s.med; stopCompare(); this.update(root); s.med?chord([392,494,587],.35):blip(180,.3,'sine',.1); return true; }
+  if(a==='card'){ const i=+el.dataset.i; s.rev[i]=!s.rev[i]; s.last=i; this.update(root); const c=LX6[state.lang].cards[i]; s.rev[i]&&(c[1]?blip(220,.25,'sawtooth',.05):chord([523,659],.25)); return true; } },
+ cmp(root){ const s=S(5); s.med=!s.med; if(s.t<.5) s.t=.8; this.update(root); s.med?chord([392,494,587],.35):blip(180,.3,'sine',.1); },
+ listen(root){ voice(140+lvl6(S(5).t,S(5).med)*320); }
+};
+const LABS=[LAB1,LAB2,LAB3,LAB4,LAB5,LAB6];
+
+/* ============ challenge ============ */
+const RQ={
+ ar:[
+  {type:'org',q:'انقر على المكان الذي يحدث فيه الإخصاب عادة.',a:'oviduct',e:'يحدث الإخصاب في أعلى قناة البيض، لأن البويضة تموت خلال 12–24 ساعة إن لم تُخصَّب.'},
+  {type:'mcq',q:'إذا لم تُخصَّب البويضة، ماذا يحدث لبطانة الرحم السميكة؟',o:['تبقى سميكة','تتفسّخ وتُفقد تدريجياً عبر المهبل (الطمث)','تتحوّل إلى مشيمة'],a:1,e:'لا حاجة إلى البطانة السميكة، فتتفسّخ وتتلف وتُفقد عبر المهبل، ويستمر الطمث عادة خمسة أيام.'},
+  {type:'sort',q:'صنّف كل عبارة: بويضة أم حيوان منوي؟',items:[['يمكنها السباحة بمعدل 4 mm في الدقيقة',1],['كبيرة، قطرها 0.1 mm تقريباً',0],['تتحرّر مليون خلية تقريباً في قذف واحد',1],['ليس لها القدرة على الحركة؛ تحرّكها الأهداب',0]],labels:['بويضة','حيوان منوي'],e:'البويضة كبيرة ولا تتحرك، والحيوان المنوي صغير يسبح وتتكوّن منه أعداد هائلة.'},
+  {type:'num',q:`يسبح حيوان منوي بمعدل ${N('4 mm')} في الدقيقة. كم دقيقة يحتاج ليقطع ${N('10 mm')}؟`,o:['2.5','4','14','40'],a:0,e:`الزمن = المسافة ÷ السرعة = ${EQ('10 ÷ 4 = 2.5 min')}.`},
+  {type:'mcq',q:'مادتان تنتقلان من دم الأم إلى دم الجنين:',o:['الأكسجين والمواد الغذائية','ثاني أكسيد الكربون واليوريا','خلايا الدم الحمراء والسموم'],a:0,e:'ينتشر الأكسجين والغذاء من دم الأم إلى الجنين؛ والدمان لا يختلطان، والمشيمة تمنع مرور السموم.'},
+  {type:'lab',q:'حرّك المنزلق حتى تتكوّن كرة من 32 خلية، ثم اضغط «تحقّق».',a:5,e:`يتضاعف العدد مع كل انقسام: ${EQ('2⁵ = 32')}، أي 5 انقسامات.`},
+  {type:'mcq',q:'ماذا يحدث للمصاب بفيروس HIV إذا لم يُعالَج؟',o:['يُشفى من تلقاء نفسه','تنخفض أعداد خلايا الدم البيضاء ويصبح عرضة لأمراض أخرى','تزداد أعداد خلايا الدم البيضاء'],a:1,e:'يدمّر الفيروس خلايا الدم البيضاء ببطء، فيضعف الجسم أمام أمراض أخرى مثل الالتهاب الرئوي.'}],
+ en:[
+  {type:'org',q:'Tap where fertilisation usually happens.',a:'oviduct',e:'Fertilisation happens at the top of the oviduct, because the egg dies within 12–24 hours if not fertilised.'},
+  {type:'mcq',q:'If the egg is not fertilised, what happens to the thick uterus lining?',o:['It stays thick','It breaks down and is slowly lost through the vagina (menstruation)','It turns into a placenta'],a:1,e:'The thick lining is not needed, so it breaks down and is lost through the vagina; menstruation usually lasts five days.'},
+  {type:'sort',q:'Sort each statement: egg or sperm?',items:[['Can swim about 4 mm per minute',1],['Large, about 0.1 mm across',0],['About a million released in one ejaculation',1],['Cannot move; moved by cilia',0]],labels:['Egg','Sperm'],e:'The egg is large and cannot move; sperm are small, swim, and are made in huge numbers.'},
+  {type:'num',q:`A sperm swims ${N('4 mm')} per minute. How many minutes to cover ${N('10 mm')}?`,o:['2.5','4','14','40'],a:0,e:`time = distance ÷ speed = ${EQ('10 ÷ 4 = 2.5 min')}.`},
+  {type:'mcq',q:'Two substances that pass from mother’s blood to the fetus’s blood:',o:['Oxygen and nutrients','Carbon dioxide and urea','Red blood cells and toxins'],a:0,e:'Oxygen and food diffuse from mother to fetus; the bloods do not mix and the placenta blocks toxins.'},
+  {type:'lab',q:'Move the slider until a ball of 32 cells forms, then press “Check”.',a:5,e:`The number doubles with each division: ${EQ('2⁵ = 32')}, so 5 divisions.`},
+  {type:'mcq',q:'What happens to someone with HIV if they are not treated?',o:['They recover by themselves','White blood cells fall and they catch other diseases','White blood cells increase'],a:1,e:'The virus slowly destroys white blood cells, so the body cannot fight diseases such as pneumonia.'}]
+};
+const starsOf=c=>c>=6?3:c>=4?2:c>=2?1:0;
+const correctCount=()=>state.ch.ans.filter(a=>a&&a.ok).length;
+function chalText(L,ci){ const c=state.ch, n=RQ[state.lang].length, st=starsOf(correctCount());
+  return `<div class="pin text" data-ci="${ci}"><div class="kicker">${L.k}</div><h1 class="ttl">${L.t}</h1><p class="hook">${L.h}</p>
+   ${L.p.map(p=>`<p>${p}</p>`).join('')}<div class="law">${L.law}</div><aside class="note">${L.note}</aside>
+   <div class="stars" style="margin-top:22px">${[0,1,2].map(i=>starSVG(i<st)).join('')}</div>
+   <div class="pips">${Array.from({length:n},(_,i)=>{const a=c.ans[i];return `<span class="pip ${a?(a.ok?'ok':'no'):''} ${!c.done&&i===c.i?'cur':''}">${a?(a.ok?'✓':'•'):i+1}</span>`}).join('')}</div>
+   <p style="text-align:center">${t('score')(correctCount(),n)}</p>${footer(ci)}</div>`; }
+function chalLab(){ const c=state.ch, Q=RQ[state.lang], n=Q.length, st=starsOf(correctCount()); let body='';
+  if(c.done){ body=`<div class="round" style="text-align:center"><div class="rq">${t('score')(correctCount(),n)}</div><div class="stars">${[0,1,2].map(i=>starSVG(i<st)).join('')}</div>
+    <p>${st===3?(isRTL()?'نجوم كاملة! أتقنت وحدة التكاثر في الإنسان.':'Full stars! You have mastered this unit.'):(isRTL()?'عمل جيد! أعد التحدّي لتجمع نجوماً أكثر.':'Good work! Try again for more stars.')}</p>
+    <button class="nextbtn" data-act="rqreset">${t('again')}</button></div>`; }
+  else { const q=Q[c.i], a=c.ans[c.i]; let inner='';
+   const mark=(i)=>a?(i===q.a?'right':(a.pick===i?'wrong':'')):'';
+   if(q.type==='mcq') inner=`<div class="ropts">${q.o.map((o,i)=>`<button class="opt ${mark(i)}" data-act="rq" data-i="${i}" ${a?'disabled':''}>${o}</button>`).join('')}</div>`;
+   if(q.type==='num') inner=`<div class="countbtns">${q.o.map((o,i)=>`<button class="opt ${mark(i)}" data-act="rq" data-i="${i}" ${a?'disabled':''}>${o}</button>`).join('')}</div>`;
+   if(q.type==='org') inner=`<svg class="dg rqsvg" width="300" height="200" viewBox="36 30 300 230" style="position:relative;display:block;margin:0 auto;--hl:${a?(a.ok?'rgba(30,138,76,.6)':'rgba(217,130,43,.6)'):'rgba(201,61,114,.4)'}">${FEM.replace(/data-act="org"/g,'data-act="rqorg"')}</svg>`;
+   if(q.type==='sort'){ const so=c.sort; inner=q.items.map((it,k)=>`<div class="srow"><span>${it[0].replace(/(\d+(\.\d+)? mm)/,m=>N(m))}</span>${q.labels.map((lb,v)=>`<button class="opt ${so[k]===v?(a?(v===it[1]?'right':'wrong'):'pick'):''}" data-act="rqsort" data-k="${k}" data-v="${v}" ${a?'disabled':''}>${lb}</button>`).join('')}</div>`).join('')+(a?'':`<button class="nextbtn" data-act="rqsortcheck" ${Object.keys(so).length<q.items.length?'disabled style="opacity:.5"':''}>${t('verify')}</button>`); }
+   if(q.type==='lab') inner=`<svg width="300" height="110" viewBox="0 0 300 110" style="display:block;margin:0 auto"><g filter="url(#glow)">${cluster(2**c.lvl,150,55,'var(--c-zyg)')}</g></svg>
+     <div class="ctrls">${rng('rqlvl',0,6,1,c.lvl,isRTL()?'عدد الانقسامات':'Divisions')}</div><div style="text-align:center">${EQ(`2<sup>${c.lvl}</sup> = ${2**c.lvl}`)}</div>
+     ${a?'':`<button class="nextbtn" data-act="rqcheck">${t('verify')}</button>`}`;
+   const fb=a?`<div class="rfb ${a.ok?'okk':''}"><b>${a.ok?t('good')[c.i%3]:t('learn')}</b> ${q.e}</div><button class="nextbtn" data-act="rqnext">${c.i===n-1?t('finish'):t('next2')}</button>`:'<div class="rfb"></div>';
+   body=`<div class="round"><div class="hint" style="font-weight:800">${t('round')(c.i+1,n)}</div><div class="rq">${q.q}</div>${inner}${fb}</div>`; }
+  return `<div class="pin lab chal" data-lab="c">${labHead(isRTL()?'جولات التحدّي':'Challenge rounds',isRTL()?'من أسئلة نهاية الوحدة: اختر، انقر، صنّف، احسب، جرّب.':'From the end-of-unit questions: choose, tap, sort, calculate, experiment.')}
+   <div class="popzone" style="height:130px">${pop({x:110,y:4,w:260,h:116,rise:-50,inner:`<div class="trophy"><span>${isRTL()?'نجومك':'Your stars'}</span><div class="stars">${[0,1,2].map(i=>starSVG(i<st)).join('')}</div></div>`})}</div>
+   ${body}${footer(6)}</div>`; }
+function chalUpdate(root){ const out=$('output',root); if(out) out.innerHTML=N(state.ch.lvl); }
+
+/* ============ mount / layout ============ */
+function pageHTML(ci,kind){ if(ci===6) return kind==='text'?textPage(ci):chalLab(); return kind==='text'?textPage(ci):LABS[ci].html(); }
+function runUpdate(root){ const r=root.classList&&root.classList.contains('pin')?root:$('.pin',root); if(!r) return; const L=r.dataset.lab;
+  if(L==='c') chalUpdate(r); else if(L!==undefined) LABS[+L].update(r); }
+const kinds=()=>isRTL()?{L:'lab',R:'text'}:{L:'text',R:'lab'};
+function curSingle(){ return state.teacher?{ci:state.spread,kind:'lab'}:{ci:Math.floor(state.spage/2),kind:state.spage%2?'lab':'text'}; }
+function layout(){ const vw=innerWidth, vh=innerHeight;
+  document.documentElement.dir=isRTL()?'rtl':'ltr'; document.documentElement.lang=state.lang; document.body.dataset.lang=state.lang;
+  document.body.classList.toggle('dark',state.dark); document.body.classList.toggle('nomotion',!state.motion); document.body.classList.toggle('teacher',state.teacher);
+  const navH=$('#nav').offsetHeight||64; document.documentElement.style.setProperty('--navH',navH+'px');
+  const old=mode; mode=state.teacher?'teacher':state.cover?'cover':(vw<600&&vh>vw?'single':'spread');
+  const bw=mode==='single'||mode==='cover'?480:960, ph=mode==='teacher'?640:860, sw=bw+70, sh=ph+70, k=Math.min((vw-10)/sw,(vh-navH-8)/sh);
+  const st=$('#stage'); st.style.width=sw+'px'; st.style.height=sh+'px'; st.style.transform=`scale(${k})`;
+  const tilt=mode==='spread'?15:mode==='single'||mode==='cover'?9:5, b=$('#book');
+  b.style.width=bw+'px'; b.style.setProperty('--ph',ph+'px'); b.style.transform=`translate(-50%,-50%) rotateX(${tilt}deg)`;
+  const off=$('#offscreen'); off.style.setProperty('--ph',ph+'px'); off.style.width=(mode==='teacher'?960:480)+'px';
+  $('#blk').style.left='-4px'; $('#blk').style.width=(bw+8)+'px';
+  $('#pA').style.left='0px'; $('#pB').style.left='480px'; $('#pB').classList.toggle('hide',mode!=='spread');
+  const pA=$('#pA'); pA.classList.toggle('sL',mode==='spread'||isRTL()); pA.classList.toggle('sR',mode!=='spread'&&!isRTL());
+  return old!==mode; }
+function mount(){ const cv=$('#coverFront'); cv.classList.toggle('show',mode==='cover'); if(mode==='cover'){ cv.innerHTML=coverHTML(); cv.style.transition='none'; cv.style.transform='translateZ(3px)'; $('#pA').innerHTML=textPage(0)+'<div class="gut"></div>'; $$('#book .page').forEach(runUpdate); $('#pB').innerHTML=''; renderNav(); return; }
+  if(mode==='spread'){ const k=kinds(); $('#pA').innerHTML=pageHTML(state.spread,k.L)+'<div class="gut"></div>'; $('#pB').innerHTML=pageHTML(state.spread,k.R)+'<div class="gut"></div>'; }
+  else { const d=curSingle(); $('#pA').innerHTML=pageHTML(d.ci,d.kind)+'<div class="gut"></div>'; $('#pB').innerHTML=''; }
+  $$('#book .page').forEach(runUpdate); renderNav(); }
+function refreshKeep(){ stopCompare(); mount(); }
+
+/* ============ flip ============ */
+function cloneOf(slot){ const pin=$('.pin',slot); const c=pin?pin.cloneNode(true):document.createElement('div'); $$('[id]',c).forEach(e=>e.removeAttribute('id')); return c; }
+function flipAnim({hinge,s,front,back,reverse=false,dur=950,W=480,H=860}){
+  return new Promise(res=>{ const NS=W>500?18:12,w=W/NS, layer=$('#flipLayer'); layer.innerHTML='';
+    const cast=document.createElement('div'); cast.className='cast'; const landLeft=s>0;
+    cast.style.left=(landLeft?hinge-W:hinge)+'px'; cast.style.width=W+'px';
+    cast.style.background=`linear-gradient(${landLeft?'to left':'to right'},rgba(40,25,10,.38),rgba(40,25,10,0) 70%)`; layer.appendChild(cast);
+    const root=document.createElement('div'); root.className='sheet'; root.style.left=hinge+'px'; layer.appendChild(root);
+    const strips=[], shades=[]; let parent=root;
+    const mkFace=(cls,src,x)=>{ const f=document.createElement('div'); f.className='face '+cls; const inner=document.createElement('div'); inner.className='faceIn';
+      inner.style.left=(-x)+'px'; inner.style.width=W+'px'; inner.style.height=H+'px'; if(src) inner.appendChild(src.cloneNode(true)); f.appendChild(inner);
+      const sh=document.createElement('div'); sh.className='fshade'; f.appendChild(sh); shades.push(sh); return f; };
+    for(let i=0;i<NS;i++){ const st=document.createElement('div'); st.className='strip'; st.style.width=w+'px';
+      if(s>0){ st.style.left=(i?w:0)+'px'; st.style.transformOrigin='0 50%'; } else { st.style.left=(-w)+'px'; st.style.transformOrigin='100% 50%'; }
+      const fx=s>0?i*w:W-(i+1)*w, bx=s>0?W-(i+1)*w:i*w; st.appendChild(mkFace('front',front,fx)); st.appendChild(mkFace('back',back,bx)); parent.appendChild(st); strips.push(st); parent=st; }
+    flipSound(); const t0=performance.now();
+    const fr=now=>{ const p=Math.min(1,(now-t0)/dur); let e=ease(p); if(reverse) e=1-e; const total=180*e, curl=34*Math.sin(Math.PI*e); let cum=0;
+      strips.forEach((st,i)=>{ const a=i===0?Math.max(0,total-curl*.5):curl*(i/(NS-1))*2/NS; cum+=a; st.style.transform=`rotateY(${-s*a}deg)`;
+        const sh=Math.abs(Math.sin(cum*Math.PI/180))*.42; shades[i*2].style.opacity=sh; shades[i*2+1].style.opacity=sh*.8; });
+      cast.style.opacity=Math.sin(Math.PI*e)*.9; if(p<1) requestAnimationFrame(fr); else { layer.innerHTML=''; res(); } };
+    requestAnimationFrame(fr); }); }
+async function go(delta){ if(busy) return;
+  if(mode==='cover'){ if(delta>0) openBook(); return; }
+  if(delta<0&&((mode==='single'&&state.spage===0)||(mode==='spread'&&state.spread===0))) return closeBook();
+  if(mode==='single'){ const tg=state.spage+delta; if(tg<0||tg>=NCH*2) return; } else { const tg=state.spread+delta; if(tg<0||tg>=NCH) return; }
+  busy=true; stopSounds(); stopCompare(); const book=$('#book');
+  const apply=()=>{ if(mode==='single'){ state.spage+=delta; state.spread=Math.floor(state.spage/2);} else { state.spread+=delta; state.spage=state.spread*2; } };
+  if(!state.motion){ apply(); mount(); busy=false; return; }
+  book.classList.add('folded'); await sleep(330); const fwd=delta>0, rtl=isRTL();
+  if(mode==='spread'){ const s=(fwd!==rtl)?1:-1, k0=kinds(), sideSlot=s>0?$('#pB'):$('#pA'), otherSlot=s>0?$('#pA'):$('#pB'), front=cloneOf(sideSlot);
+    apply(); const off=$('#offscreen'); off.innerHTML=pageHTML(state.spread,s>0?k0.L:k0.R); runUpdate(off); await sleep(30); const back=cloneOf(off);
+    sideSlot.innerHTML=pageHTML(state.spread,s>0?k0.R:k0.L)+'<div class="gut"></div>'; runUpdate(sideSlot);
+    await flipAnim({hinge:480,s,front,back}); otherSlot.innerHTML=pageHTML(state.spread,s>0?k0.L:k0.R)+'<div class="gut"></div>'; runUpdate(otherSlot); off.innerHTML=''; }
+  else { const W=mode==='teacher'?960:480, H=mode==='teacher'?640:860, s=rtl?-1:1, hinge=rtl?W:0, slot=$('#pA');
+    if(fwd){ const front=cloneOf(slot); apply(); const d=curSingle(); slot.innerHTML=pageHTML(d.ci,d.kind)+'<div class="gut"></div>'; runUpdate(slot); await flipAnim({hinge,s,front,back:null,W,H}); }
+    else { apply(); const d=curSingle(), off=$('#offscreen'); off.innerHTML=pageHTML(d.ci,d.kind); runUpdate(off); await sleep(30); const front=cloneOf(off);
+      await flipAnim({hinge,s,front,back:null,reverse:true,W,H}); slot.innerHTML=pageHTML(d.ci,d.kind)+'<div class="gut"></div>'; runUpdate(slot); off.innerHTML=''; } }
+  renderNav(); await sleep(40); book.classList.remove('folded'); busy=false; }
+function jumpTo(ci){ if(busy) return; if(mode==='cover'){ state.spread=ci; state.spage=ci*2; return openBook(); } const cur=mode==='single'?Math.floor(state.spage/2):state.spread;
+  if(mode==='single'){ const tg=ci*2, d=tg-state.spage; if(d===0) return; if(Math.abs(d)===1) return go(d); state.spage=tg; state.spread=ci; stopSounds(); mount(); unfoldSoon(); return; }
+  if(ci===cur) return; if(Math.abs(ci-cur)===1) return go(ci-cur); state.spread=ci; state.spage=ci*2; stopSounds(); stopCompare(); mount(); unfoldSoon(); }
+
+/* ============ cover ============ */
+const CV={ar:{tag:'كتاب تفاعلي',subj:'الأحياء',unit:'الوحدة الرابعة',title:'التكاثر في الإنسان',meta:'الصف العاشر · الفصل الدراسي الأول · سلطنة عُمان',by:'إعداد',role:'معلمة تقنية المعلومات',name:'ابتسام الرواس',open:'افتح الكتاب'},
+ en:{tag:'Interactive Book',subj:'Biology',unit:'Unit 4',title:'Reproduction in Humans',meta:'Grade 10 · Semester 1 · Sultanate of Oman',by:'Prepared by',role:'IT Teacher',name:'Ibtisam Al Rawas',open:'Open the book'}};
+function coverHTML(){ const X=CV[state.lang];
+  return `<div class="cf" data-act="open"><div class="cvSpine"></div><div class="cvFrame"></div><div class="cvIn">
+   <div class="cvTag">${X.tag}</div>
+   <div class="cvSubj gold">${X.subj}</div>
+   <div class="cvRule"></div>
+   <div class="cvUnit">${X.unit}</div>
+   <div class="cvTitle gold">${X.title}</div>
+   <svg width="230" height="190" viewBox="0 0 230 190" fill="none" stroke="#e7c66a" stroke-width="2" stroke-linecap="round">
+     <circle cx="98" cy="96" r="62" stroke-width="2.5"/><circle cx="98" cy="96" r="52" stroke-dasharray="3 5" opacity=".8"/>
+     <circle cx="98" cy="96" r="17" fill="rgba(231,198,106,.25)"/><path d="M90 92 q4 -6 8 0 q4 6 8 0" opacity=".9"/>
+     ${[[70,70],[122,72],[72,124],[126,118],[60,98],[136,96],[98,64],[98,132]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2" fill="#e7c66a" stroke="none" opacity=".7"/>`).join('')}
+     <g transform="translate(176 46) rotate(140)"><ellipse rx="9" ry="6" fill="rgba(231,198,106,.35)"/><path d="M9 0 q10 -8 20 0 t20 0 t20 0" stroke-width="2.2"/></g>
+     <g transform="translate(190 120) rotate(175)" opacity=".7"><ellipse rx="7" ry="4.6"/><path d="M7 0 q8 -6 16 0 t16 0" /></g>
+     <g transform="translate(30 168) rotate(-40)" opacity=".55"><ellipse rx="6" ry="4"/><path d="M6 0 q7 -5 14 0 t14 0"/></g>
+   </svg>
+   <div class="cvMeta">${X.meta}</div>
+   <div class="cvBy"><small>${X.by}</small><span class="cvMeta" style="font-weight:700">${X.role}</span><b class="gold">${X.name}</b>
+     <button class="cvOpen" data-act="open">${X.open} ${isRTL()?'←':'→'}</button></div>
+  </div></div><div class="cb"></div>`; }
+async function openBook(){ if(busy) return; busy=true; stopSounds(); const cv=$('#coverFront');
+  if(state.motion){ noise(.6,500,2200,.12); cv.style.transformOrigin=isRTL()?'100% 50%':'0% 50%'; cv.style.transition='transform 1.15s cubic-bezier(.55,0,.25,1)';
+    void cv.offsetWidth; cv.style.transform=`translateZ(3px) rotateY(${isRTL()?168:-168}deg)`; await sleep(1150); }
+  state.cover=false; layout(); mount(); unfoldSoon(); busy=false; }
+async function closeBook(){ if(busy) return; busy=true; stopSounds(); stopCompare(); state.cover=true; state.spread=0; state.spage=0; layout(); mount();
+  const cv=$('#coverFront');
+  if(state.motion){ cv.style.transformOrigin=isRTL()?'100% 50%':'0% 50%'; cv.style.transform=`translateZ(3px) rotateY(${isRTL()?168:-168}deg)`; void cv.offsetWidth;
+    cv.style.transition='transform 1.05s cubic-bezier(.55,0,.25,1)'; noise(.5,2200,500,.1); cv.style.transform='translateZ(3px)'; await sleep(1050); }
+  busy=false; }
+
+/* ============ nav ============ */
+function renderNav(){ const ci=mode==='single'?Math.floor(state.spage/2):state.spread;
+  const atStart=mode==='cover'||mode==='teacher'&&state.spread===0, atEnd=mode==='single'?state.spage===NCH*2-1:state.spread===NCH-1;
+  const done=i=>i===6?state.ch.done:!!state.checks[i];
+  $('#nav').innerHTML=`<div class="grp"><button class="nb" data-act="prev" aria-label="${t('prev')}" ${atStart?'disabled':''}>${ICON.chev}</button>
+    <div id="dots">${Array.from({length:NCH},(_,i)=>`<button class="dot ${i===ci&&mode!=='cover'?'cur':''} ${done(i)?'done':''}" data-act="dot" data-i="${i}" aria-label="${t('ch')} ${i+1}">${done(i)?'✓':i+1}</button>`).join('')}</div>
+    <button class="nb" data-act="next" aria-label="${t('next')}" ${atEnd?'disabled':''}>${ICON.chevN}</button></div>
+    <div class="grp"><button class="nb" data-act="lang" aria-label="language">${t('lang')}</button>
+    <button class="nb" data-act="dark" aria-label="${t('dark')}">${state.dark?ICON.sun:ICON.moon}</button>
+    <button class="nb ${state.muted?'on':''}" data-act="mute" aria-label="${t('muteL')}">${state.muted?ICON.mute:ICON.snd}</button>
+    <button class="nb ${state.motion?'':'on'}" data-act="motion" aria-label="${t('motionL')}">${state.motion?ICON.pause:ICON.play}</button>
+    <button class="nb ${state.teacher?'on':''}" data-act="teacher" aria-label="${t('teacherShort')}">${ICON.board}</button></div>`; }
+
+/* ============ compare / listen ============ */
+let cmpIv=0, cmpRoot=null;
+function stopCompare(){ clearInterval(cmpIv); cmpIv=0; if(cmpRoot&&cmpRoot.dataset.lab==='3'){ LAB4.stopCmp(); if(cmpRoot.isConnected) LAB4.update(cmpRoot); } cmpRoot=null; $$('.cmp').forEach(b=>b.classList.remove('on')); }
+function startCompare(root){ const L=LABS[+root.dataset.lab]; cmpRoot=root; const tick=()=>{ if(!root.isConnected){ stopCompare(); return; } L.cmp(root); };
+  tick(); cmpIv=setInterval(tick,1700); $('.cmp',root).classList.add('on'); }
+
+/* ============ events ============ */
+function confetti(x,y,n=40){ if(!state.motion) return; const cv=$('#fx'), cx=cv.getContext('2d'); cv.width=innerWidth; cv.height=innerHeight;
+  const cols=['#c93d72','#0f8796','#7a4bc6','#2e9a57','#f5b301'];
+  const ps=Array.from({length:n},()=>({x,y,vx:(Math.random()-.5)*9,vy:-Math.random()*9-3,r:Math.random()*4+3,c:cols[Math.random()*5|0],a:Math.random()*6}));
+  let f=0; const step=()=>{ cx.clearRect(0,0,cv.width,cv.height); ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.a+=.2;cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.fillStyle=p.c;cx.fillRect(-p.r,-p.r/2,p.r*2,p.r);cx.restore();});
+    if(++f<70) requestAnimationFrame(step); else cx.clearRect(0,0,cv.width,cv.height); }; step(); }
+const ctr=el=>{const r=el.getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2];};
+function answer(pick,btn,ok){ const c=state.ch, q=RQ[state.lang][c.i]; if(c.ans[c.i]) return; ok=ok!==undefined?ok:pick===q.a; c.ans[c.i]={pick,ok};
+  const [x,y]=ctr(btn); refreshKeep(); if(ok){ chord([523,659,784],.4,.09); confetti(x,y,36); } else blip(300,.18,'sine',.08); }
+document.addEventListener('click',e=>{ const b=e.target.closest('[data-act]'); if(!b||b.disabled) return; const act=b.dataset.act, root=b.closest('.pin');
+  switch(act){
+   case 'prev': return go(-1);
+   case 'next': return go(1);
+   case 'dot': return jumpTo(+b.dataset.i);
+   case 'lang': stopSounds(); stopCompare(); state.lang=isRTL()?'en':'ar'; layout(); mount(); return;
+   case 'dark': state.dark=!state.dark; layout(); renderNav(); return;
+   case 'mute': state.muted=!state.muted; if(A.master) A.master.gain.value=state.muted?0:.5; renderNav(); return;
+   case 'motion': state.motion=!state.motion; layout(); renderNav(); return;
+   case 'teacher': return toggleTeacher();
+   case 'open': return openBook();
+   case 'flap': { const ci=+b.dataset.ci; state.flaps[ci]=!state.flaps[ci]; b.classList.toggle('open',state.flaps[ci]); blip(state.flaps[ci]?520:390,.12,'triangle',.1); return; }
+   case 'check': { const ci=+b.dataset.ci, i=+b.dataset.i, L=TX[state.lang][ci]; state.checkPick[ci]=i; const box=b.closest('.check');
+     $$('.opt',box).forEach((o,j)=>o.className='opt '+(j===i?(i===L.ca?'right':'wrong'):''));
+     if(i===L.ca){ state.checks[ci]=true; $('.cfb',box).innerHTML='<span class="ok">'+L.ok+'</span>'; chord([523,659,784],.4,.08); confetti(...ctr(b),30); renderNav(); }
+     else { $('.cfb',box).textContent=t('retry'); blip(330,.15,'sine',.08); } return; }
+   case 'cmp': if(cmpIv&&cmpRoot===root) stopCompare(); else { stopCompare(); startCompare(root); } return;
+   case 'listen': { const L=LABS[+root.dataset.lab]; if(A.listen){ const on=false; stopSounds(); L.listenToggle&&L.listenToggle(root,false); }
+     else { A.listen=true; b.classList.add('on'); if(L.listenToggle) L.listenToggle(root,true); else { L.listen(root); A.listenIv=setInterval(()=>{ if(!root.isConnected){stopSounds();return;} L.listen(root); },900); } } return; }
+   case 'rq': return answer(+b.dataset.i,b);
+   case 'rqorg': return answer(b.dataset.org,b,b.dataset.org===RQ[state.lang][state.ch.i].a);
+   case 'rqcheck': return answer(state.ch.lvl,b);
+   case 'rqsort': { state.ch.sort[+b.dataset.k]=+b.dataset.v; refreshKeep(); blip(500,.06); return; }
+   case 'rqsortcheck': { const q=RQ[state.lang][state.ch.i], ok=q.items.every((it,k)=>state.ch.sort[k]===it[1]); return answer(JSON.stringify(state.ch.sort),b,ok); }
+   case 'rqnext': { const n=RQ[state.lang].length; state.ch.sort={}; if(state.ch.i>=n-1){ state.ch.done=true; refreshKeep(); if(starsOf(correctCount())){ confetti(innerWidth/2,innerHeight/2,90); chord([523,659,784,1047],.8,.08);} }
+     else { state.ch.i++; refreshKeep(); } blip(600,.08); return; }
+   case 'rqreset': state.ch={i:0,ans:[],lvl:2,done:false,sort:{}}; refreshKeep(); return;
+  }
+  if(root&&root.dataset.lab!==undefined&&root.dataset.lab!=='c'){ LABS[+root.dataset.lab].act(act,b,root); }
+});
+document.addEventListener('input',e=>{ const el=e.target, k=el.dataset&&el.dataset.in; if(!k) return; const root=el.closest('.pin');
+  if(k==='rqlvl'){ state.ch.lvl=+el.value; const sv=$('.round svg g',root); if(sv) sv.innerHTML=cluster(2**state.ch.lvl,150,55,'var(--c-zyg)'); $('output',root).innerHTML=N(state.ch.lvl);
+    const eq=$$('.round .eq',root).pop(); if(eq) eq.innerHTML=`2<sup>${state.ch.lvl}</sup> = ${2**state.ch.lvl}`; voice(196*Math.pow(2,state.ch.lvl/3)); return; }
+  if(root&&root.dataset.lab!==undefined){ if(cmpRoot===root) stopCompare(); LABS[+root.dataset.lab].input(k,el,root); } });
+function unfoldSoon(){ const b=$('#book'); b.classList.add('folded'); setTimeout(()=>b.classList.remove('folded'),state.motion?380:0); }
+function toggleTeacher(){ if(busy) return; state.cover=false; stopSounds(); stopCompare(); state.teacher=!state.teacher; if(!state.teacher) state.spage=state.spread*2+1; layout(); mount(); unfoldSoon(); }
+document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT'&&e.target.type==='range') return;
+  if(e.key==='Escape'&&state.teacher){ toggleTeacher(); return; }
+  if(e.key==='ArrowLeft') go(isRTL()?1:-1); if(e.key==='ArrowRight') go(isRTL()?-1:1); });
+let sw=null;
+$('#viewport').addEventListener('pointerdown',e=>{ if(e.target.closest('input,button,.disc,.org,.part,.noswipe,.flap')){sw=null;return;} sw={x:e.clientX,y:e.clientY}; });
+$('#viewport').addEventListener('pointerup',e=>{ if(!sw) return; const dx=e.clientX-sw.x, dy=e.clientY-sw.y; sw=null; if(Math.abs(dx)>60&&Math.abs(dy)<70){ const nx=isRTL()?dx>0:dx<0; go(nx?1:-1); } });
+addEventListener('resize',()=>{ if(layout()){ mount(); unfoldSoon(); } });
+
+renderNav(); layout(); mount(); unfoldSoon();
+window.__book={state,go,mount,layout,toggleTeacher,get mode(){return mode}};
+</script>
+</body>
+</html>
